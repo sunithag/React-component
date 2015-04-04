@@ -5,6 +5,6 @@ var App= React.createClass({
         <Header/>
         <SearchResults/>
       </div>
-  	)
+    )
   }
- });
+});

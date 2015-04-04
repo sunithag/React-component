@@ -1,7 +1,7 @@
 var Header= React.createClass({
   render: function() {
-  	return (
-  	  <header>
+    return (
+      <header>
         <div className="homepage-header">
           <img src="assets/images/header.jpg" alt="Walmart Header"/>
         </div>
@@ -12,6 +12,6 @@ var Header= React.createClass({
           </div>
         </nav>
       </header>
-  	)
+    )
   }
 });

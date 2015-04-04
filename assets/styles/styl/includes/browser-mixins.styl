@@ -1,0 +1,9 @@
+/* ==========================================================================
+   Transparent Mixins
+   ========================================================================== */
+
+// Adds fallback styles for opacity: 0-1 for IE8
+opacity(n) {
+  filter: unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')');
+  opacity: n;
+}

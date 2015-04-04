@@ -1,0 +1,244 @@
+@import "includes";
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "myriad-pro", Arial, sans-serif;
+}
+
+.mobile-container {
+  width: 320px;
+  min-height: 100%;
+  height: auto;
+
+  header {
+    height: 81px;
+  }
+
+  .homepage-header {
+    height: 40px;
+  }
+
+  nav {
+    position: relative;
+    z-index: 10;
+    height: 40px;
+    background-color: $blue;
+    border-bottom: 1px solid $grey-cool;
+
+    div {
+      width: 300px;
+      height: 38px;
+      margin: 0 10px;
+      position: relative;
+      top: -5px;
+      background: url('../images/search-bar.png') no-repeat 0 0;
+    }
+
+    input {
+      display: block;
+      padding: 8px 5px 1px;
+      min-width: 215px;
+      position: absolute;
+      top: 7px;
+      left: 15px;
+      border: 0 none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      width: 45px;
+      height: 30px;
+      position: absolute;
+      top: 7px;
+      right: 0px;
+      border: 0 none;
+      text-align: -9999px;
+      opacity: 0;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .result-item {
+    width: 320px;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $grey-light;
+    overflow: hidden;
+
+    .left {
+      width: 110px;
+      float: left;
+      position: relative;
+    }
+
+    .right {
+      width: 195px;
+      margin-left: 6px;
+      margin-right: 6px;
+      float: right;
+    }
+
+    // left side product image
+    .product-image {
+      width: 90px;
+      height: 90px;
+      margin: 10px;
+      display: block;
+    }
+
+    .flag {
+      position: absolute;
+      top: 0;
+
+      span {
+        overflow: hidden;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 5px 13px 3px 10px;
+        border-radius: 0 50px 50px 0;
+        display: block;
+
+        &.specialbuy {
+          background-color: rgb(0,125,198);
+        }
+
+        &.rollback {
+          background-color: rgb(244,33,33);
+        }
+
+        &.bestseller {
+          background-color: rgb(244,116,33);
+        }
+      }
+    }
+
+    .swatches {
+      margin-left: 10px;
+
+      li {
+        width: 10px;
+        height: 10px;
+        float: left;
+        margin-right: 3px;
+
+        &:hover {
+          opacity: 0.65;
+          cursor: pointer;
+        }
+
+        &.expander {
+          width: 20px;
+        }
+      }
+
+      span {
+        display: block;
+        font-size: 10px;
+        color: $grey-medium;
+
+      }
+    }
+  }
+
+  .product-title {
+    margin-bottom: 10px;
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      color: $blue;
+      font-weight: 700;
+    }
+
+    .title-info {
+      color: $grey-medium;
+      font-size: 16px;
+    }
+
+    .product-sub-info {
+      font-size: 11px;
+      padding-top: -10px;
+      color: $grey-medium;
+      position: relative;
+      top: -5px;
+    }
+
+    .product-original-price {
+      text-decoration: line-through;
+    }
+
+    p {
+      color: $grey-dark;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 5px 0 0;
+    }
+  }
+
+  .rating {
+    height: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+
+    .stars-reviews {
+      margin-left: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: $grey-medium;
+      float: left;
+    }
+    .stars {
+      height: auto;
+      width: auto;
+      float: left;
+      margin-top: 1px;
+    }
+    .stars li {
+      height: 10px;
+      width: 10px;
+      float: left;
+      margin-right: 2px;
+      display: block;
+      text-indent: -9999px;
+      background: url("../images/star-empty-small.png") no-repeat;
+    }
+    .stars li.full-star {
+      background-image: url("../images/star-rated-small.png");
+    }
+    .stars li.half-star {
+      background-image: url("../images/star-partial-small.png");
+    }
+  }
+
+  .shipping-pass {
+    height: 20px;
+    margin-bottom: 10px;
+
+    a {
+      text-decoration: none;
+      color: #67B017;
+      padding-left: 10px;
+      background: url("../images/shipping-arrow.png") no-repeat 0 2px;
+    }
+  }
+
+  .product-shipping-info {
+    li {
+      color: #AAAAAA;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+  }
+}

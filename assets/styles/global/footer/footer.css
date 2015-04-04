@@ -1,0 +1,35 @@
+/* FOOTER COMPONENT CSS */
+.footer {
+  clear: both;
+  padding-top: 20px;
+  border-top: 1px solid $grey-light;
+}
+.footer-social-media {
+  display: inline-block;
+  padding: 12px 0;
+breakpoint($breakpoint-m)
+}
+.footer-social-media a {
+  margin: 0 12px;
+}
+.footer-social-media i {
+  font-size: 19px;
+breakpoint($breakpoint-xl)
+}
+.footer-social-media .mobile-apps {
+  display: inline-block;
+  width: 28px;
+  font-size: 10px;
+  line-height: 1;
+}
+.footer-social-media-heading {
+  display: inline-block;
+  margin: 0;
+}
+.footer-copyright-text {
+  line-height: 40px;
+  text-align: center;
+}
+.reference-id-explanation {
+  padding-left: 20px;
+}

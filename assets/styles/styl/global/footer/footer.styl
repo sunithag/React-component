@@ -1,0 +1,65 @@
+/* FOOTER COMPONENT CSS */
+
+.footer {
+  clear: both;
+  padding-top: 20px;
+  border-top: 1px solid $grey-light;
+}
+
+$tenant-footer();
+
+.footer-social-media {
+  display: inline-block;
+  padding: 12px 0;
+
+  +breakpoint($breakpoint-m) {
+    padding: 7px 0;
+    float: right;
+
+    .link-mobile-apps {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    margin: 0 12px;
+  }
+
+  i {
+    font-size: 19px;
+
+    +breakpoint($breakpoint-xl) {
+      font-size: 21px;
+    }
+  }
+
+  .mobile-apps {
+    display: inline-block;
+    width: 28px;
+
+    font-size: 10px;
+    line-height: 1;
+  }
+}
+
+$tenant-footer-social-media();
+
+.footer-social-media-heading {
+  display: inline-block;
+  margin: 0;
+}
+
+$tenant-footer-social-media-heading();
+
+$tenant-footer-copyright();
+
+.footer-copyright-text {
+  line-height: 40px;
+  text-align: center;
+}
+
+$tenant-footer-copyright-text();
+
+.reference-id-explanation {
+  padding-left: 20px;
+}

@@ -1,0 +1,22 @@
+.message-list {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  list-style: none;
+  text-align: right;
+}
+.message-list li {
+  display: none;
+  max-width: 400px;
+  background-color: $white;
+  font-size: 12px;
+  line-height: 36px;
+}
+@media (min-width: 1366px) {
+  .message-list li {
+    font-size: 14px;
+  }
+}
+.message-list li:first-child {
+  display: block;
+}

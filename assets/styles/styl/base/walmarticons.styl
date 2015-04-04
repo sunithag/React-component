@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'WalmartIcons';
+  src: url('/static/fonts/walmarticons/walmarticons.eot');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WalmartIcons';
+  // TODO: [USFEATLAS-461] - Add `.woff2` version back and fix build system issues.
+  src: url('/static/fonts/walmarticons/walmarticons.woff') format('woff'),
+    url('/static/fonts/walmarticons/walmarticons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.wmicon {
+  walmarticons();
+
+  display: inline-block;
+
+  line-height: normal;
+
+  &:before {
+    content: "";
+
+    display: inline;
+
+    speak: none;
+  }
+}
+
+.wmicon-14 {
+  font-size: 14px;
+}
+
+.wmicon-16 {
+  font-size: 16px;
+}
+
+.wmicon-20 {
+  font-size: 20px;
+}
+
+.wmicon-26 {
+  font-size: 26px;
+}
+
+.wmicon-32 {
+  font-size: 32px;
+}
+
+.wmicon-36 {
+  font-size: 36px;
+}
+
+// See $wmicons hash in mixins.styl
+for $icon in $wmicons {
+  .wmicon-{$icon}:before {
+    wmicon($icon);
+  }
+}

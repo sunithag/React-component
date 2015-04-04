@@ -1,0 +1,58 @@
+/*
+Stars
+
+.stars-small - Small star variant.
+.stars-large - Large star variant.
+
+Styleguide 10.3
+*/
+.stars {
+  color: $grey-light;
+  font-size: 0;
+  line-height: 1;
+}
+.star {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-left: 3px;
+  background-repeat: no-repeat;
+  font-style: normal;
+  vertical-align: middle;
+}
+.star:first-child {
+  margin-left: 0;
+}
+.stars-reviews {
+  margin-left: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.stars-and-up {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.stars-small .star {
+  width: 10px;
+  height: 10px;
+  margin-left: 2px;
+}
+.stars-small .star:first-child {
+  margin-left: 0;
+}
+.stars-small .stars-reviews {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.stars-large .star {
+  width: 28px;
+  height: 28px;
+  margin-left: 5px;
+}
+.stars-large .star:first-child {
+  margin-left: 0;
+}

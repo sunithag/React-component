@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Searchbar
+   ========================================================================== */
+
+$searchbar-ml-breakpoint = 800px; // Unacceptable UX between standard breakpoints
+$searchbar-input-height = 37px;
+$searchbar-flyout-modal-width = 470px;
+$searchbar-submit-width = 44px;
+$searchbar-submit-width-large = 78px;
+$searchbar-font-size = 13px;
+$searchbar-font-size-1366 = 15px;
+$searchbar-input-font-size = 20px;
+$searchbar-input-font-size-1366 = 22px;
+$searchbar-box-shadow = 0 8px 10px rgba(0,0,0,.4);
+
+.searchbar {
+  position: relative;
+}
+
+.searchbar-typeahead {
+  position: relative;
+}
+
+.searchbar-typeahead-input {
+  &.empty {
+    .searchbar-clear {
+      display: none;
+    }
+  }
+}
+
+.searchbar-submit {
+  width: $searchbar-submit-width-large;
+  height: $searchbar-input-height;
+  padding: 0;
+  border: 0;
+
+  background: #ccc;
+
+  @media (min-width: 1366px) {
+    font-size: 18px;
+  }
+}
+
+.searchbar-overlay {
+  wmzindex("basic");
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+
+  cursor: text;
+
+  @media (max-width: 1024px) {
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.searchbar-input {
+  font-smoothing();
+
+  width: 100%;
+  height: $searchbar-input-height;
+  padding: 5px 16px;
+  border: 0;
+  border-radius: 0;
+
+  // Remove background on input and set background on .searchbar container
+  // instead, so that box shadows on the buttons anchored on the left and right
+  // sit on top of the background correctly.
+  background: none;
+  font-size: $searchbar-input-font-size;
+  -webkit-appearance: none;
+
+  @media (min-width: 1366px) {
+    font-size: $searchbar-input-font-size-1366;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.searchbar-clear {
+  &,
+  &:hover {
+    wmzindex("basic-increment");
+
+    position: absolute;
+    right: 10px;
+
+    padding: 0 0 1px;
+    width: 18px;
+    height: @width;
+
+    background: $grey-cool;
+    border-radius: 50%;
+    color: $white;
+    font-size: 13px;
+    line-height: 0;
+  }
+}
+
+/* ==========================================================================
+   Typeahead
+   ========================================================================== */
+
+.typeahead {
+  width: 100%;
+  height: 100%;
+}
+
+.tt-dropdown-menu {
+  margin: 5px 0 0 1px;
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+
+  background-color: $white;
+  box-shadow: $searchbar-box-shadow;
+}
+
+.tt-suggestion {
+  padding: 0 16px;
+
+  a {
+    display: block;
+    margin-top: 0;
+    height: 35px;
+    padding: 9px 0 10px;
+
+    color: $grey-medium;
+    font-weight: 400;
+    line-height: 1;
+
+    > strong {
+      color: $grey-dark;
+    }
+
+    &:hover {
+      color: $blue-hover;
+
+      > strong {
+        color: $blue-hover;
+      }
+    }
+  }
+
+  .tt-suggestion-cat {
+    padding-left: 20px;
+  }
+}
+
+.tt-cursor {
+  background-color: $grey-very-light;
+}

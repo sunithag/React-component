@@ -1,0 +1,57 @@
+.global-footer-module .footer-links-column {
+  font-size: 14px;
+  line-height: 1;
+breakpoint($breakpoint-xl)
+}
+.global-footer-module .footer-links-column:first-child {
+  margin-left: 0px;
+}
+.global-footer-module .footer-links-column h3 {
+  margin-top: 15px;
+  font-size: 14px;
+breakpoint($breakpoint-xl)
+}
+.global-footer-module .footer-links-column .block-list {
+  margin: 0;
+  text-align: center;
+breakpoint($breakpoint-l)
+}
+.global-footer-module .footer-links-column .block-list > li {
+  display: inline-block;
+  margin: 0 10px;
+  line-height: 35px;
+breakpoint($breakpoint-m)
+breakpoint($breakpoint-l)
+}
+.global-footer-module .footer-links-column .block-list > li img {
+  display: block;
+}
+.global-footer-module .footer-links-column .block-list .expand,
+.global-footer-module .footer-links-column .block-list .collapse {
+  width: 18px;
+  margin-right: 2px;
+  padding: 0px;
+  border: none;
+  background: none;
+  color: $blue;
+  cursor: pointer;
+  line-height: 1;
+}
+.global-footer-module .footer-links-column .block-list .expand:hover,
+.global-footer-module .footer-links-column .block-list .collapse:hover,
+.global-footer-module .footer-links-column .block-list .expand:focus,
+.global-footer-module .footer-links-column .block-list .collapse:focus {
+  color: $blue-secondary;
+}
+.global-footer-module .footer-links-column .block-list .expand:before {
+  content: "[+]";
+}
+.global-footer-module .footer-links-column .block-list .collapse:before {
+  content: "[–]";
+}
+.global-footer-module .footer-links-column .block-list .sub-list {
+  display: none;
+}
+.global-footer-module .footer-links-column .block-list .sub-list > li {
+  margin-left: 23px;
+}

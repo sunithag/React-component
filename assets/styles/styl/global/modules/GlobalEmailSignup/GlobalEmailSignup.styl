@@ -1,0 +1,94 @@
+// GLOBAL EMAIL SIGNUP MODULE
+
+.global-email-signup {
+  text-align: center;
+
+  +breakpoint($breakpoint-m) {
+    text-align: left;
+  }
+
+  .global-email-signup-privacy-link  {
+    font-size: 12px;
+  }
+}
+
+$tenant-global-email-signup();
+
+.global-email-signup-heading {
+  display: inline-block;
+  margin-bottom: 8px;
+  width: 304px;
+
+  +breakpoint($breakpoint-s) {
+    display: inline-block;
+    margin-right: 8px;
+    width: auto;
+
+    line-height: 2.4;
+  }
+
+  +breakpoint($breakpoint-m) {
+    display: block;
+
+    line-height: 1
+  }
+
+  +breakpoint($breakpoint-l) {
+    display: inline-block;
+
+    line-height: 2.4;
+  }
+
+  p {
+    margin: 0;
+    text-align: left;
+  }
+}
+
+$tenant-global-email-signup-heading();
+
+.global-email-signup-form {
+  display: inline-block;
+  margin-bottom: 10px;
+  vertical-align: top;
+
+  +breakpoint($breakpoint-m) {
+    margin-bottom: 0;
+  }
+
+  label.visuallyhidden {
+    margin-top: 0;
+  }
+
+  .validation-group {
+    width: auto;
+    vertical-align: top;
+
+    .error-label {
+      display: table;
+      padding: 0;
+    }
+  }
+}
+
+$tenant-global-email-signup-form();
+
+.global-email-signup-form .form-control {
+  vertical-align: top;
+  margin: 0;
+  width: 216px;
+
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+$tenant-global-email-signup-form-control();
+
+.global-email-signup-form .btn {
+  padding: 0 10px;
+  vertical-align: top;
+
+  font-size: 15px;
+}
+
+$tenant-global-email-signup-form-btn();

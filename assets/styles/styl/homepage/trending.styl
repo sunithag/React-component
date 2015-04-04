@@ -1,0 +1,161 @@
+.trending-page-wrapper {
+  .trending-tile-align {
+    min-width: 1024px;
+
+    > div {
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 930px;
+
+      @media (min-width: 1366px) {
+        width: 1240px;
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: 15px;
+  }
+
+  .trending-filters-container {
+    &.fixed {
+      wmzindex("trending-categories-fixed");
+
+      position: fixed;
+      top: 49px;
+
+      width: 100%;
+
+      background-color: $white;
+
+      box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+
+      .trending-filters {
+        animation: header-slide-down 0.3s ease forwards;
+
+        padding: 10px 0;
+      }
+    }
+      
+    .trending-filters {
+      padding-bottom: 20px;
+    }
+  }
+
+  .spinner {
+    position: fixed;
+  }
+
+  .trending-filter-categories {
+    .arrow-link {
+      margin-left: 20px;
+    }
+
+    .collapse-list-action:after {
+      transform: rotate(270deg);
+    }
+
+    .btn-badge {
+      margin-left: 10px;
+
+      &:first-child {
+        margin-left: 0px;
+      }
+    }
+
+    .categories-list {
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+.trending-items-container {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 930px;
+  @media (min-width: 1366px) {
+    max-width: 1240px;
+  }
+
+  list-style: none;
+}
+
+.trending-product {
+  width: 310px;
+  padding: 10px;
+
+  .tile {
+    width: 100%;
+    padding-top: 0;
+
+    .product-title {
+      margin: 0;
+      padding: 5px 15px;
+
+      background-color: $blue-pale;
+      border-radius: 4px 4px 0 0;
+      color: $black;
+      font-size: 13px;
+      font-weight: 600;
+
+      .product-type {
+        float: left;
+      }
+
+      .time-stamp {
+        float: right;
+        font-size: 11px;
+      }
+
+      &.BEST_SELLER_ITEMS {
+        color: $white;
+        background-color: $orange;
+      }
+    }
+
+    .tile-section {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .tile-heading {
+      height: 34px;
+    }
+
+    .tile-controls {
+      .btn-link {
+        float: right;
+      }
+    }
+
+    .product-image {
+      margin: 15px auto;
+      height: 259px;
+      width: 259px;
+    }
+
+    .price-display {
+      height: 27px;
+    }
+
+    .stars {
+      margin-top: 8px;
+    }
+
+    .pins {
+      margin-top: 3px;
+
+      color: #666;
+      font-size: 12px;
+      font-weight: 400;
+
+      .wmicon-pinterest {
+        color: $red;
+      }
+    }
+  }
+}

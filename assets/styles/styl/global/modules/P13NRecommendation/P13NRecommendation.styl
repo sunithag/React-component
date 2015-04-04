@@ -1,0 +1,345 @@
+$p13n-recommendations-parent-item-width = 172px;
+$p13n-two-line-tile-heading-height = 36px;
+
+.product-recommendations .heading-a {
+  margin: 20px 0 0 40px;
+}
+
+.pal-modal .common-recommendations {
+  .heading-a {
+    font-size: 25px;
+    font-weight: 600;
+  }
+}
+
+.product-recommendations .irs-holiday-banner {
+  display: none;
+}
+
+.module-p13n-recommendations {
+  background: $blue-light;
+
+  .carousel-heading {
+    display: inline-block;
+    padding: 17px 0 10px 40px;
+  }
+
+  .carousel-paginator-list {
+    padding: 20px 0;
+  }
+
+  .oos {
+    margin-left: 2px;
+
+    font-size: 10px;
+    font-weight: 900;
+    color: $grey-medium;
+    vertical-align: 10px;
+    text-transform: none;
+  }
+
+  .oos-price {
+    color: $grey-medium;
+  }
+
+  .slick-slider {
+    padding-bottom: 25px;
+  }
+
+  ol.items {
+    width: 100% !important;
+  }
+}
+
+.parent-item {
+  float: left;
+  margin: 25px 0 0 40px;
+  padding: 10px 0 5px;
+  vertical-align: top;
+  width: $p13n-recommendations-parent-item-width;
+
+  background: repeat scroll 0 0 $white;
+  border: 1px solid $grey-light;
+  border-radius: 4px;
+
+  .parent-heading {
+    margin: -20px 0 20px;
+
+    text-align: center;
+  }
+
+  .tile {
+    padding: 0;
+
+    background: none;
+    border: none;
+    border-radius: 0;
+
+    .flag {
+      top: 5px;
+    }
+  }
+}
+
+.carousel-p13n {
+
+  .items>li .flyout-modal {
+    margin-left: -3px;
+    margin-bottom: 0px;
+    padding: 6px;
+
+    font-size: 14px;
+  }
+}
+
+.module-p13n-recentlyviewed {
+  background: $blue-light;
+  background-clip: content-box;
+
+  .carousel-heading {
+    display: inline-block;
+    padding: 17px 0 10px 40px;
+  }
+
+  .rvi-header, .rvi-list {
+    padding: 0 0 0 40px;
+  }
+
+  .rvi-list {
+    .rvi-tile {
+      width: 100px;
+      height: 100px;
+      margin: 0 5px;
+      border: 1px solid $blue-pale
+      border-radius: 4px;
+
+      &.current {
+        border: 3px solid $green;
+        border-radius: 4px;
+
+        &:before {
+          wmzindex("basic");
+
+          content: "";
+          position: absolute;
+          top: 107px;
+          left: 38px;
+
+          width: 0;
+          height: 0;
+          border: 11px solid transparent;
+
+          box-shadow: 1px -1px 2px rgba(0,0,0,.12);
+          transform: rotate(133deg);
+          background: $blue-light;
+        }
+      }
+
+      &.active {
+        border: 2px solid $blue;
+      }
+    }
+
+    .rvi-product-name-bubble {
+      padding: 10px;
+    }
+  }
+
+  .rvi-img {
+    width: 75px;
+    height: @width;
+  }
+
+  .rvi-line {
+    height: 1px;
+    margin: 20px 0px 0px 0px;
+
+    background: $grey-light;
+  }
+
+  .clear-list {
+    padding: 25px 20px 0px 0px;
+
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
+
+// for no recommendation view
+.module-p13n-recentlyviewed {
+  .rvi-norec {
+    position: relative;
+
+    overflow: hidden;
+  }
+
+  .rvi-norec-img {
+    margin: 50px;
+    padding: 20px 10px 20px 100px;
+    float: left;
+    width: 400px;
+    height: 300px;
+  }
+
+  .rvi-norec-panel {
+    margin: 120px 60px;
+  }
+
+  .rvi-norec-text {
+    margin: 5px 10px 20px 5px;
+
+    font-size: 18px;
+  }
+
+  .rvi-norec-url {
+    color: $blue-tertiary;
+  }
+}
+
+// Homepage specific
+.homepage .module-p13n-recommendations {
+  .heading-a {
+    padding-top: 20px;
+    margin: 20px 0 10px 40px;
+
+    font-size: 25px;
+  }
+}
+
+// Value of the day specific
+.valueoftheday .module-p13n-recommendations {
+  .heading-a {
+    padding-top: 20px;
+    margin: 20px 0 10px 40px;
+
+    font-size: 25px;
+  }
+}
+
+
+// Category specific
+.category {
+  .module-p13n-recentlyviewed {
+    margin-top: 30px;
+
+    .carousel-heading {
+      margin: 0;
+    }
+  }
+}
+
+// product page
+.product-page {
+  .irs-verytop .heading-a {
+    padding-top: 0;
+  }
+
+  .irs-top-transition {
+    transition: max-height 1.5s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+
+    &.expanded {
+      max-height: 425px;
+    }
+  }
+}
+
+// start PERSSITEP-2684, PR 11038
+.product-page .module-p13n-recommendations .carousel-loading {
+  .items {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    >li {
+      display: inline-block;
+
+      white-space: normal;
+    }
+  }
+}
+// end PERSSITEP-2684, PR 11038
+
+.product-page .irs-holiday {
+  .heading-a {
+    padding-bottom: 20px;
+  }
+
+  .irs-holiday-banner {
+    display: block;
+    float: right;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    margin-top: -47px;
+    margin-right: 62%;
+  }
+
+  .irs-hide-shop-now {
+    display: none;
+  }
+
+  .carousel.carousel-n-up {
+    max-height: 0;
+    transition: max-height 1.5s ease;
+    overflow: hidden;
+
+    &.expanded {
+      max-height: 300px;
+      height: 300px;
+
+      .carousel-paginator {
+        transition: opacity 0.5s ease;
+        transition-delay: 1.5s;
+        opacity: 1;
+      }
+    }
+  }
+
+  .irs-arrow-down, .irs-arrow-up {
+    display: inline-block;
+
+    width: 20px;
+    height: 7px;
+  }
+
+  .irs-arrow-up {
+    background: url(/static/img/arrow-up.png) no-repeat;
+  }
+
+  .irs-arrow-down {
+    background: url(/static/img/arrow-down.png) no-repeat;
+  }
+
+  .irs-holiday-ribbon-container {
+    background: url(/static/img/recommendations/ribbon.png) no-repeat;
+
+    width: 110%;
+    height: 59px;
+
+    margin-top: -65px;
+  }
+
+  .hide-ribbon {
+    background: none;
+  }
+}
+
+// Product page specific
+.top-product-recommendations {
+  // The irs-top module is designed to maximize use of vertical space with only two line product headings.
+  .tile-heading {
+    height: $p13n-two-line-tile-heading-height;
+  }
+
+  .expanded {
+    height: auto;
+  }
+
+  .animating {
+    transition: height 0.4s ease
+  }
+}
+

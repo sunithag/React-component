@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+/*
+Persistent Subnavigation
+
+Styleguide 9.1
+*/
+.persistent-subnav {
+  clear: both;
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 44px;
+  background: $white;
+  box-shadow: 0 3px 2px -2px rgba(0,0,0,0.2), 0 -2px 1px -2px rgba(0,0,0,0.2);
+  opacity: 0.99;
+}
+.persistent-subnav.fixed {
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+.persistent-subnav.close {
+  position: relative;
+  top: 0;
+}
+.persistent-subnav-list {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  list-style: none;
+}
+.persistent-subnav-item {
+  display: inline-block;
+  width: 25%;
+  font-size: 16px;
+  list-style: none;
+}
+.persistent-subnav-item a {
+  position: relative;
+  display: block;
+  height: 44px;
+  font-weight: 600;
+  line-height: 44px;
+  text-align: center;
+}
+.persistent-subnav-item.current a {
+  color: $black;
+}
+.persistent-subnav-item.current a:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+}
+/*
+Persistent Back to Top
+
+Styleguide 9.2
+*/
+.persistent-nav-top {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  display: none;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  border-radius: 5px 5px 0 0;
+  background-color: $blue;
+  background-image: url("/static/img/backtotop-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  color: $white;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+}
+.persistent-nav-top:hover {
+  background-color: $blue-hover;
+}
+.persistent-nav-top:active {
+  background-color: $blue-active;
+}
+.persistent-subnav.fixed .persistent-nav-top,
+.persistent-nav-top-container.fixed .persistent-nav-top {
+  display: block;
+  animation: nav-top-slide-up 0.3s ease forwards;
+}
+.persistent-subnav.close .persistent-nav-top,
+.persistent-nav-top .persistent-nav-top-container.close {
+  animation: nav-top-slide-down 0.3s ease forwards;
+}
+/*
+Breadcrumb
+
+.breadcrumb-list-mini - A mini variant for the product page.
+
+Styleguide 9.3
+*/
+.breadcrumb-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.breadcrumb {
+  position: relative;
+  display: inline-block;
+  padding-left: 25px;
+  font-size: 14px;
+}
+.breadcrumb.active a {
+  color: $black;
+  font-weight: 600;
+}
+.breadcrumb .breadcrumb-leaf {
+  display: inline;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+}
+.breadcrumb:before {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  color: $grey-medium;
+  font-size: 7px;
+}
+.breadcrumb:first-child {
+  padding-left: 0;
+}
+.breadcrumb:first-child:before {
+  display: none;
+}
+.breadcrumb em {
+  font-style: normal;
+  font-weight: 400;
+}
+.breadcrumb-list-mini .breadcrumb {
+  font-size: 12px;
+}
+.breadcrumb-list-mini .breadcrumb:before {
+  top: 4px;
+}
+@-moz-keyframes nav-top-slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes nav-top-slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-o-keyframes nav-top-slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes nav-top-slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes nav-top-slide-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@-webkit-keyframes nav-top-slide-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@-o-keyframes nav-top-slide-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@keyframes nav-top-slide-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}

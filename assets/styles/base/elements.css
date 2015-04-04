@@ -1,0 +1,564 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+/* ==========================================================================
+   Box Sizing
+   ========================================================================== */
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+html,
+button,
+input,
+select,
+textarea {
+  color: $grey-dark;
+  font-family: $font;
+}
+/*
+fix for third party sticky footer on firefox and IE
+ */
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+}
+.wf-loading:not(.lt-ie9) h1,
+.wf-loading:not(.lt-ie9) h2,
+.wf-loading:not(.lt-ie9) h3,
+.wf-loading:not(.lt-ie9) h4,
+.wf-loading:not(.lt-ie9) h5,
+.wf-loading:not(.lt-ie9) h6,
+.wf-loading:not(.lt-ie9) p,
+.wf-loading:not(.lt-ie9) ul,
+.wf-loading:not(.lt-ie9) a,
+.wf-loading:not(.lt-ie9) button {
+  color: transparent !important;
+}
+.wf-loading:not(.lt-ie9) ::-webkit-input-placeholder {
+  color: transparent !important;
+}
+.wf-loading:not(.lt-ie9) ::-moz-placeholder {
+  color: transparent !important;
+}
+.wf-loading:not(.lt-ie9) :-ms-input-placeholder {
+  color: transparent !important;
+}
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+/* ==========================================================================
+   Sticky Footer
+   ========================================================================== */
+.main-html-body {
+  height: 100%;
+}
+.page-wrapper {
+  min-height: 100%;
+}
+.page-wrapper:after {
+  content: "";
+  display: block;
+}
+.foot {
+  visibility: hidden;
+}
+.footer-visible {
+  visibility: visible;
+}
+/*
+Headings
+
+We use six primary heading styles, which correspond to `.heading-` classes
+`a` &ndash; `f`.
+
+Use heading elements `h1` &ndash; `h6` to write markup based on structure,
+not style. Avoid skipping heading levels when marking up content. Content
+headed by an `h3` should be within content headed by an `h2`.
+
+Add a `.heading-` class to style the element based on the design. In the
+example below, each heading is an `h6` element to demonstrate that styling
+is based on class, not HTML tag.
+
+For more information, see
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements.
+
+Styleguide 6.1
+*/
+.heading-a,
+.heading-b,
+.heading-c,
+.heading-d,
+.heading-e,
+.heading-f,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $black;
+  font-weight: 600;
+}
+.heading-a,
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.heading-b,
+h2 {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.heading-c {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.heading-d,
+h3 {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.heading-e,
+h4 {
+  font-size: 16px;
+  letter-spacing: 0;
+}
+.heading-f,
+h5 {
+  font-size: 15px;
+  letter-spacing: 0;
+}
+/*
+Body Text
+
+.copy-open-leading - Open leading
+.copy-small - Small body text
+.copy-mini - Mini body text
+
+Styleguide 6.2
+*/
+.copy-small {
+  font-size: 14px;
+}
+.copy-mini {
+  font-size: 12px;
+}
+.copy-open-leading {
+  line-height: 1.625;
+}
+.copy-narrow-leading {
+  line-height: 1.2;
+}
+.copy-unformatted p,
+.copy-unformatted ul,
+.copy-unformatted ol {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.copy-unformatted li {
+  display: block;
+}
+/*
+Font Weights
+
+We use 4 primary font weights.
+Which correspond to `.font-light`, `.font-normal`
+,`font-semibold` &amp; `.font-bold` classes.
+
+<table class="guide-table">
+ <tbody>
+   <tr>
+     <td style="font-weight: 300;">Light</td>
+     <td style="font-weight: 400;">Normal</td>
+     <td style="font-weight: 600;">Semibold</td>
+     <td style="font-weight: 700;">Bold</td>
+   </tr>
+   <tr>
+    <td><code>300</code><br /><code>.font-light</code></td>
+     <td><code>400</code><br /><code>.font-normal</code></td>
+     <td><code>600</code><br /><code>.font-semibold</code></td>
+     <td><code>700</code><br /><code>.font-bold</code></td>
+   </tr>
+ </tbody>
+</table>
+
+Styleguide 6.3
+*/
+/*
+Links
+
+Styleguide 6.4
+*/
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #555;
+}
+.more-link {
+  font-size: 14px;
+  font-weight: 600;
+}
+.more-link:after {
+  content: "";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  margin-left: 8px;
+  border: 4px solid transparent;
+  border-top-color: $blue;
+  vertical-align: middle;
+}
+.more-link:hover:after {
+  border-top-color: $blue-secondary;
+}
+.arrow-link:after {
+  content: "";
+  display: inline-block;
+  margin-left: 10px;
+  border: 4px solid transparent;
+  border-left-color: $blue;
+  transition: 0.3s ease transform;
+  transform-origin: 2px 4px;
+  vertical-align: middle;
+}
+.arrow-link:hover:after {
+  border-left-color: $blue-secondary;
+}
+.arrow-link.active:after {
+  transform: rotate(90deg);
+}
+.no-csstransforms .arrow-link.active:after {
+  border-top-color: $blue-secondary;
+  border-left-color: transparent;
+}
+.arrow-link-before:before {
+  content: "";
+  display: inline-block;
+  margin-right: 10px;
+  border: 4px solid transparent;
+  border-right-color: $black;
+  transition: 0.3s ease transform;
+  transform-origin: 2px 4px;
+  vertical-align: middle;
+}
+.arrow-link-before:hover:before {
+  border-right-color: $blue-secondary;
+}
+.arrow-link-before.active:before {
+  transform: rotate(90deg);
+}
+.no-csstransforms .arrow-link-before.active:before {
+  border-top-color: $blue-secondary;
+  border-right-color: transparent;
+}
+/* ==========================================================================
+   Vertical Margins and Modules
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+p,
+figure,
+pre,
+table,
+fieldset,
+hr,
+blockquote {
+  margin: 24px 0 0;
+}
+.copy-small h1,
+.copy-small h2,
+.copy-small h3,
+.copy-small h4,
+.copy-small h5,
+.copy-small h6,
+.copy-small ul,
+.copy-small ol,
+.copy-small dl,
+.copy-small p,
+.copy-small figure,
+.copy-small pre,
+.copy-small table,
+.copy-small fieldset,
+.copy-small hr,
+.copy-small blockquote {
+  margin: 21px 0 0;
+}
+.copy-mini h1,
+.copy-mini h2,
+.copy-mini h3,
+.copy-mini h4,
+.copy-mini h5,
+.copy-mini h6,
+.copy-mini ul,
+.copy-mini ol,
+.copy-mini dl,
+.copy-mini p,
+.copy-mini figure,
+.copy-mini pre,
+.copy-mini table,
+.copy-mini fieldset,
+.copy-mini hr,
+.copy-mini blockquote {
+  margin: 18px 0 0;
+}
+.copy-open-leading h1,
+.copy-open-leading h2,
+.copy-open-leading h3,
+.copy-open-leading h4,
+.copy-open-leading h5,
+.copy-open-leading h6,
+.copy-open-leading ul,
+.copy-open-leading ol,
+.copy-open-leading dl,
+.copy-open-leading p,
+.copy-open-leading figure,
+.copy-open-leading pre,
+.copy-open-leading table,
+.copy-open-leading fieldset,
+.copy-open-leading hr,
+.copy-open-leading blockquote {
+  margin: 26px 0 0;
+}
+.module > *:first-child {
+  margin-top: 0;
+}
+/*
+Images
+
+Deprecated: These classes are deprecated. Do not use in old or new projects.
+Pages using it may break at any time.
+
+You should use `width` and `height` attributes on `img` in your HTML.
+Torbit delivers correctly resized images based on those attributes if you
+use them.
+
+Common images widths include:
+
+<table class="guide-table">
+ <tbody>
+   <tr>
+     <td>30px</td>
+     <td><code>img-30</code></td>
+   </tr>
+   <tr>
+     <td>45px</td>
+     <td><code>img-45</code></td>
+   </tr>
+   <tr>
+     <td>50px</td>
+     <td><code>img-50</code></td>
+   </tr>
+   <tr>
+     <td>60px</td>
+     <td><code>img-60</code></td>
+   </tr>
+   <tr>
+     <td>100px</td>
+     <td><code>img-100</code></td>
+   </tr>
+   <tr>
+     <td>125px</td>
+     <td><code>img-125</code></td>
+   </tr>
+   <tr>
+     <td>150px</td>
+     <td><code>img-150</code></td>
+   </tr>
+   <tr>
+     <td>180px</td>
+     <td><code>img-180</code></td>
+   </tr>
+   <tr>
+     <td>300px</td>
+     <td><code>img-300</code></td>
+   </tr>
+   <tr>
+     <td>450px</td>
+     <td><code>img-450</code></td>
+   </tr>
+   <tr>
+     <td>2000px</td>
+     <td><code>img-2000</code></td>
+   </tr>
+ </tbody>
+</table>
+
+Styleguide 6.5
+*/
+img {
+  max-width: 100%;
+}
+.img-30,
+.img-45,
+.img-50,
+.img-55,
+.img-60,
+.img-100,
+.img-125,
+.img-150,
+.img-180,
+.img-300,
+.img-450,
+.img-2000 {
+  width: 100%;
+  height: auto;
+}
+.img-30 {
+  width: 30px;
+  height: 30px;
+}
+.img-45 {
+  width: 45px;
+  height: 45px;
+}
+.img-50 {
+  width: 50px;
+  height: 50px;
+}
+.img-55 {
+  width: 55px;
+  height: 55px;
+}
+.img-60 {
+  width: 60px;
+  height: 60px;
+}
+.img-100 {
+  width: 100px;
+  height: 100px;
+}
+.img-125 {
+  width: 125px;
+  height: 125px;
+}
+.img-150 {
+  width: 150px;
+  height: 150px;
+}
+.img-180 {
+  width: 180px;
+  height: 180px;
+}
+.img-300 {
+  width: 300px;
+  height: 300px;
+}
+.img-450 {
+  width: 450px;
+  height: 450px;
+}
+.img-2000 {
+  width: 2000px;
+  height: 2000px;
+}
+/* ==========================================================================
+   Placeholder Text
+   ========================================================================== */
+::-webkit-input-placeholder {
+  color: #a9a9a9;
+}
+::-moz-placeholder {
+  color: #a9a9a9;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #a9a9a9;
+}
+::-ms-clear {
+  display: none;
+}
+input.placeholder {
+  color: #a9a9a9;
+}
+/*
+Description Lists
+
+.dl-emphasize - Variant with bold `dt` elements.
+.dl-horizontal - Horizontal variant.
+.dl-horizontal.copy-small.dl-emphasize - Small emphasized variants.
+.dl-horizontal.copy-mini - Mini variant.
+
+Styleguide 6.6
+*/
+dl dt {
+  overflow: hidden;
+  white-space: nowrap;
+}
+dl dd {
+  margin-left: 10px;
+}
+dl.dl-horizontal dt {
+  float: left;
+  clear: left;
+  width: 100px;
+  text-overflow: ellipsis;
+}
+dl.dl-horizontal dd {
+  margin-left: 100px;
+}
+dl.dl-horizontal.copy-small dt {
+  width: 80px;
+}
+dl.dl-horizontal.copy-small dd {
+  margin-left: 80px;
+}
+dl.dl-horizontal.copy-mini dt {
+  width: 60px;
+}
+dl.dl-horizontal.copy-mini dd {
+  margin-left: 60px;
+}
+dl.dl-emphasize dt {
+  font-weight: bold;
+}
+/* ==========================================================================
+   Misc
+   ========================================================================== */
+button {
+  cursor: pointer;
+}
+.zone:hover area {
+  outline: none;
+}
+.server-stack-trace {
+  padding: 8px;
+}
+.server-stack-trace pre {
+  font-size: 12px;
+  font-family: Consolas, courier, monospace;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  padding: 0;
+}
+td,
+th {
+  text-align: inherit;
+}

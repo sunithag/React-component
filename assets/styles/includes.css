@@ -1,0 +1,350 @@
+/*
+Variables
+
+Styleguide 4
+*/
+/*
+Colors
+
+Styleguide 4.1
+*/
+/*
+Responsive Breakpoints
+
+We use five major breakpoints in Atlas. These breakpoints are primarily meant
+for use in `min-width` "mobile-first" media queries:
+
+```
+// Applies to screens wider than or equal to 768px.
+
+.component {
+  @media (min-width: $breakpoint-m) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+In cases where `max-width` "desktop-first" media queries are necessary, use the
+accompanying `-max` variants of the breakpoint media queries:
+
+```
+// Applies to screens more narrow than the "large" breakpoint of 1024px.
+
+.component {
+  @media (max-width: $breakpoint-m-max) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+Each `-max` variable is 1px more narrow than the *next largest* breakpoint, preventing
+overlap between `min-width` and `max-width` media queries.
+
+|                        | Default               | Extra Small           |  Small               | Medium              | Large               | Extra Large         |
+| :---------------       | :--------             | :--                   | :----------          | :----------         | :----------         | :-----------        |
+| **Screen Sizes**       | `< 320px`             | `>= 320px`            | `>= 480px`           | `>= 768px`          | `>= 1024px`         | `>= 1364px`         |
+| **Variable**           | None                  | `$breakpoint-xs`      | `$breakpoint-s`      | `$breakpoint-m`     | `$breakpoint-l`     | `$breakpoint-xl`    |
+| **Max-width Variable** | None                  | `$breakpoint-xxs-max` | `$breakpoint-xs-max` | `$breakpoint-s-max` | `$breakpoint-m-max` | `$breakpoint-l-max` |
+
+Styleguide 4.2
+*/
+/*
+Deprecated: Responsive Breakpoints
+
+These variables are deprecated in favor of the new breakpoint set above.
+
+We use four major breakpoints in Atlas. These breakpoints are primarily meant
+for use in `min-width` "mobile-first" media queries:
+
+```
+// Applies to screens wider than or equal to than 768px.
+
+.component {
+  @media (min-width: $screen-m) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+In cases where `max-width` "desktop-first" media queries are necessary, use the
+accompanying `-max` variants of the breakpoint media queries:
+
+```
+// Applies to screens more narrow than the "large" breakpoint of 768px.
+
+.component {
+  @media (max-width: $screen-m-max) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+Each `-max` variable is 1px more narrow than the *next largest* breakpoint, preventing
+overlap between `min-width` and `max-width` media queries.
+
+|                        | Default (Small) | Medium          | Large           | Extra Large     | Extra Extra Large |
+| :---------------       | :--------       | :----------     | :----------     | :----------     | :-----------      |
+| **Screen Sizes**       | `< 544px`       | `>= 544px`      | `>= 768px`      | `>= 992px`      | `>= 1366px`       |
+| **Variable**           | None            | `$screen-m`     | `$screen-l`     | `$screen-xl`    | `$screen-xxl`     |
+| **Max-width Variable** | None            | `$screen-s-max` | `$screen-m-max` | `$screen-l-max` | `$screen-xl-max`  |
+
+Styleguide 4.3
+*/
+/*
+Spacing
+
+Spacing between and within different elements can be achieved with the
+`-margin` and `-padding` variables. This ensures consistent spacing throughout
+the page, and opens up the process for responsive spacing in the (near)
+future.
+
+Each variable is a non-responsive, fixed unit.
+
+For ease of moving different components around the page using `margin`,
+see [Modules and Margins](#3-modules-and-margins).
+
+```
+// Applies 30px to the top margin and 5px to the left margin, and
+// applies 10px padding on all sides.
+
+.component {
+  margin-top: $m-margin;
+  margin-left: $xxs-margin;
+  padding: $xs-padding;
+}
+```
+
+|                        | Extra Extra Small | Extra Small    | Small          | Medium          | Large        | Extra Large    | Extra Extra Large |
+| :---------------       | :--------         | :----------    | :----------    | :----------     | :----------- | :----------    | :-----------      |
+| **Size**               | `4px`             | `12px`         | `20px`         | `32px`          | `40px`       | `48px`         | `60px`            |
+| **Margin variable**    | `$xxs-margin`     | `$xs-margin`   | `$s-margin`    | `$m-margin`     | `$l-margin`  | `$xl-margin`    | `$xxl-margin`    |
+| **Padding variable**   | `$xxs-padding`    | `$xs-padding`  | `$s-padding`   | `$m-padding`    | `$l-padding` | `$xl-padding`   | `$xxl-padding`   |
+
+
+
+Styleguide 4.4
+*/
+/*
+Mixins
+
+Styleguide 15
+*/
+/*
+wmzindex()
+
+We name every `z-index` and use them with the `wmzindex()` mixin. This lets
+us keep track of all z-indices used so that there is no guesswork about
+order. For more information, see http://css-tricks.com/handling-z-index/
+
+To add a `z-index`, refer to the `$wmzindex` list in `variables.styl` and
+create a new z-index with the desired stacking order.
+
+Most z-indices are named for their component. There are also several utility
+indices which cover common use cases:
+
+- `"negative"`: Sets `z-index: -1` to place content behind the normal flow.
+- `"none"`: Resets `z-index` to `0`.
+- `"basic"`: Sets `z-index: 1` to place content in front of the normal flow.
+- `"basic-increment"`: Sets `z-index: 2` to place content in front of
+ elements with a `"basic"` `z-index`.
+
+To use, call `wmzindex()` with a name. `wmzindex("basic")` will return
+`z-index: 1;`.
+
+Styleguide 15.1
+*/
+/*
+font-smoothing()
+
+The `font-smoothing()` mixin applies `-webkit-font-smoothing` and
+`-moz-osx-font-smoothing` to adjust font smoothing behavior on OS X browsers
+(Chrome, Safari, Opera, and Firefox). Best used on icon fonts and large text.
+
+The mixin applies `-webkit-font-smoothing: antialiased` and
+`-moz-osx-font-smoothing: grayscale` by default. You can pass in `"off"` as
+a parameter to set these values back to their browser defaults, or
+`"inherit"` to set them to `inherit`.
+
+Styleguide 15.2
+*/
+/*
+css3pie()
+
+The `css3pie()` mixin adds basic CSS3 support for IE7+. Do not use this on
+`*` as it has a substantial performance impact. It should only be used on
+a case-by-case basis.
+
+For more details, see http://css3pie.com/
+
+Styleguide 15.3
+*/
+/*
+svgBg()
+
+The `svgBg()` mixin sets an SVG background image with a Modernizr fallback.
+*/
+/*
+blinktext()
+
+The `blinktext()` mixin applies a 'blinking' animation indefinitely, most
+commonly used to the make an ellipsis blink.
+
+Styleguide 15.4
+*/
+/*
+clearfix()
+
+The `clearfix()` mixin clears any `float` beahvior, allowing
+the component to stack horizontally neatly.
+
+The `clearfix()` mixin applies `display: table` and `content: ""` on the
+pseudo elements `&:before` and `&:after`, avoiding the collapsed
+height effect of floats. Additionally, it applies `clear: both` to the
+`&:after` pseudo element to allow horizontal stacking.
+
+Styleguide 15.5
+*/
+/*
+ir()
+
+Deprecated: This component is deprecated. Do not use it in old or new
+projects. Pages using it may break at any time.
+
+The mixin `ir()` is used for image replacement. Apply the mixin to
+an element and add a background image, so that there is accessible text,
+but it displays an image for sighted users.
+
+The preferred solution to use instead is to wrap the accessible text in
+a `<span class="visuallyhidden"></span>`.
+
+Styleguide 15.6
+*/
+/*
+visuallyhidden()
+
+We use the `visuallyhidden()` mixin when content should be made availble
+to screen readers users, but kept hidden from sighted users.
+
+The `visuallyhidden()` mixin positions content off the visible screen using
+`position: absolute;` to remove the element from the page flow.
+It applies `width: 1px; height: 1px;` to make the
+element a one-pixel square in size and uses `overflow: hidden` to
+visually hide everything that does not fit in these dimensions. A negative
+margin, `margin: -1px;`, and a clip, `clip: rect(0 0 0 0)`, is applied to
+define what portion of an element is visible while avoiding any page
+scrolling.
+
+Styleguide 15.7
+*/
+/*
+ellipsis()
+
+The `ellipsis()` mixin truncates a single line of text to an ellipsis (...)
+when it is too long. It applies `white-space: nowrap`, which means
+it will not work on a paragraph of text.
+
+Styleguide 15.8
+*/
+/*
+horizontal-dotted-border()
+
+The `horizontal-dotted-border()` mixin applies a horizontal border.
+The horizontal border has a repeating pattern of 1 gray and 2
+transparent pixels, resulting in a visually aesthetic separator line.
+
+Styleguide 15.9
+*/
+/*
+img-hide-alt()
+
+The `img-hide-alt()` mixin is for hiding the alt-text in
+certain browsers (i.e. Firefox) since we have limited space the alt-text
+will go all over the place.
+
+Styleguide 15.10
+*/
+/*
+remify()
+
+The `remify($values)` mixin takes a `px` value and converts it to `rem`. It also
+adds a `px` fallback for old browsers. All font sizing should use this mixin,
+unless there is a particular use case in which an element should be sized with
+`em` values instead.
+
+`remify()` accepts multiple values, allowing for shorthand declarations. For
+example, the following is valid: `padding: remify(20px 16px)`.
+
+Styleguide 15.11
+*/
+/*
+emify()
+
+The `emify($value)` mixin takes a `px` value and converts it to `em`. `emify()`
+should only be used when adding minor breakpoints, because `rem` values cannot
+be used in breakpoints. In all other cases, use `remify()` instead.
+
+Styleguide 15.12
+*/
+/*
+absolute-center()
+
+The `absolute-center()` mixin centers an element vertically and horizontally.
+
+To use, the containing element must have a `position` value of `relative`,
+`absolute`, or `fixed` and the element to be centered must have a fixed height
+if you want to center it vertically.
+
+Styleguide 15.13
+*/
+/*
+absolute-center-h()
+
+The `absolute-center()` mixin centers an element horizontally.
+
+To use, the containing element must have a `position` value of `relative`,
+`absolute`, or `fixed`.
+
+Styleguide 15.13.1
+*/
+/*
+absolute-center-v()
+
+The `absolute-center()` mixin centers an element vertically.
+
+To use, the containing element must have a `position` value of `relative`,
+`absolute`, or `fixed` and the element to be centered must have a fixed height
+if you want to center it vertically.
+
+Styleguide 15.13.2
+*/
+/*
+breakpoint()
+
+The `breakpoint()` mixin is used for `min-` and `max-width` media queries.
+It conditionally wraps code in media queries depending on the value of the
+`$isResponsive` variable. This allows us to generate fallback stylesheets that
+apply desktop screen styles without media queries.
+
+`breakpoint()` takes two parameters:
+
+- `$width`: a `px` or `em` width for the media query
+- `$type`: the type of media query, `min` (default) or `max`
+
+Pixel widths are automatically converted to `em` values.
+
+`breakpoint()` is a block mixin. Example usage:
+
+```
++breakpoint($breakpoint-m) {
+  body {
+    background: blue;
+  }
+}
+```
+
+Styleguide 15.14
+*/

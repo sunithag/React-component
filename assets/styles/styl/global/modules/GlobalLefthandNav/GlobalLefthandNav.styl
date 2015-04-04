@@ -1,0 +1,404 @@
+$nav-dropdown-width = 228px;
+$nav-dropdown-height = 496px; // Change value in header-sticky.js if this changes
+
+/* ==========================================================================
+   Global Nav
+   ========================================================================== */
+.nav-main-primary {
+  list-style: none;
+}
+
+nav-main-dropdown-toggle-active() {
+  +breakpoint($breakpoint-l) {
+    // TODO: Find out if this is doing anything.
+    wmzindex("nav-dropdown-toggle");
+
+    height: 36px;
+    margin-bottom: -6px;
+    padding-bottom: 6px;
+    border-right: 0;
+
+    background: $blue-light;
+  }
+
+  &:after {
+    transform: rotate(-180deg);
+  }
+}
+
+nav-main-primary-homepage-dropdown-toggle() {
+  .nav-main-primary-homepage .nav-main-dropdown-toggle {
+    nav-main-dropdown-toggle-active();
+
+    color: $blue-hover;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .nav-dropdown-container-homepage {
+    height: $nav-dropdown-height;
+
+    opacity: 1;
+  }
+
+  .nav-dropdown-homepage {
+    padding: 5px 0;
+  }
+}
+
+.nav-main-dropdown-toggle {
+  position: relative;
+
+  width: $nav-dropdown-width;
+  margin: 0 0 0 -20px;
+  padding: 0 50px 0 20px;
+  border: none;
+  border-right: 1px solid #efefef;
+
+  +breakpoint($breakpoint-l) {
+    background: $white;
+  }
+
+  transition: 0.3s ease background;
+
+  &:focus{
+    outline: none;
+  }
+
+  &.active {
+    nav-main-dropdown-toggle-active();
+  }
+
+  &:after {
+    content: none; // don't display on offcanvas nav
+    position: absolute;
+    top: 17px;
+    right: 19px;
+
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-top-color: $yellow;
+
+    transition: 0.3s ease transform;
+    transform-origin: center 3px;
+
+    +breakpoint($breakpoint-l) {
+      content: "";
+    }
+  }
+}
+
+.nav-dropdown-container {
+  +breakpoint($breakpoint-l) {
+    wmzindex("nav-dropdown");
+
+    clearfix();
+    position: absolute;
+    left: 0;
+
+    width: $nav-dropdown-width;
+    height: 0;
+    margin-top: 6px;
+    border-radius: 0 0 5px 5px;
+
+    background: $white;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+  }
+
+  +breakpoint($breakpoint-xl) {
+    left: 12px;
+  }
+
+  &.active {
+    height: $nav-dropdown-height;
+
+    opacity: 1;
+    transition: 0.3s ease height;
+  }
+
+  &.expanded {
+    width: 964px;
+  }
+
+  li {
+    float: none;
+  }
+}
+
+.nav-dropdown {
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+  height: 792px; // set height so able to display transition
+
+  +breakpoint($breakpoint-l) {
+    overflow: hidden;
+    width: $nav-dropdown-width;
+    height: 100%;
+    padding-left: 40px;
+    border-radius: 0 0 5px 5px;
+
+    background: $blue-light;
+  }
+
+  .nav-dropdown-container.active & {
+    padding: 5px 0;
+  }
+
+  li {
+    display: block;
+  }
+}
+
++breakpoint($breakpoint-xl) {
+  nav-main-primary-homepage-dropdown-toggle();
+}
+
+// Start: AB test header on homepage
+.header-abtest.header {
+  nav-main-primary-homepage-dropdown-toggle();
+}
+// End.
+
+.nav-dropdown-item {
+  display: block;
+  width: $nav-dropdown-width;
+  height: 32px;
+  margin-left: 0;
+  padding: 0 20px;
+  border: none;
+
+  background: $blue-light;
+  font-size: 13px;
+  line-height: @height;
+  white-space: nowrap;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.nav-flyout-toggle {
+  cursor: default;
+
+  &:hover,
+  &:focus,
+  &.active {
+    +breakpoint($breakpoint-l) {
+      background: $white;
+    }
+  }
+}
+
+.touch .nav-flyout-toggle {
+  color: $blue;
+
+  &:hover {
+    background: none;
+    color: $blue;
+    display: inline-block;
+  }
+
+  &.active {
+    background: $white;
+  }
+}
+
+.touch .nav-flyout-link {
+  &:hover {
+    background: none;
+    color: $blue;
+  }
+}
+
+.nav-flyout {
+  position: relative;
+  left: 0;
+
+  width: 100%;
+
+  +breakpoint($breakpoint-l) {
+    clearfix();
+
+    position: absolute;
+    top: 0px;
+    left: $nav-dropdown-width;
+
+    display: none;
+    width: 736px;
+    height: 100%;
+    border-radius: 0 0 5px 0;
+    border-top: 1px solid $grey-very-light;
+
+    background: $white;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    +breakpoint($breakpoint-l) {
+      margin: 10px 0 0;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  li {
+    display: block;
+  }
+
+  a {
+    display: inline-block;
+    padding: 5px 0;
+
+    color: $grey-medium;
+    font-size: 13px;
+  }
+}
+
+.nav-flyout-section {
+  padding: 0;
+  width: 100%;
+
+  +breakpoint($breakpoint-l) {
+    width: 172px;
+    padding: 20px 30px 20px 0;
+  }
+
+  &:first-child {
+    +breakpoint($breakpoint-l) {
+      margin-left: 30px;
+    }
+  }
+
+  a:hover,
+  a:focus {
+    color: $grey-dark;
+  }
+}
+
+.nav-flyout-heading a {
+  display: inline-block;
+
+  color: $blue;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+
+  &:hover {
+    color: $blue-hover;
+
+    i {
+      border-left-color: $blue-hover;
+    }
+
+    &:after {
+      border-left-color: $blue-hover;
+    }
+  }
+
+  i {
+    content: "";
+
+    display: none;
+    border: 4px solid transparent;
+    border-left-color: $blue;
+
+    vertical-align: middle;
+  }
+}
+
+.corner-ad {
+  position: absolute;
+  right: 30px;
+
+  display: none; // not displayed in offcanvas nav
+
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: right;
+
+  transition: 0.3s ease all;
+  visibility: hidden;
+
+  a {
+    padding: 0;
+
+    color: $orange;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  img {
+    position: relative;
+
+    max-width: inherit;
+  }
+
+  &.verticalColumn {
+    img {
+      top: 30px;
+      left: 30px;
+    }
+
+    &.bleed img {
+      left: 50px
+    }
+  }
+
+  &.smallRectangle {
+    img {
+      top: 34px;
+      left: 30px;
+
+      width: 246px;
+      height: 126px;
+    }
+
+    &.bleed img {
+      left: 50px;
+    }
+  }
+
+  &.horizontalColumn {
+    img {
+      top: 34px;
+      left: 30px;
+
+      width: 416px;
+      height: 126px;
+    }
+
+    &.bleed img {
+      left: 50px;
+    }
+  }
+
+  .nav-flyout.active & {
+    bottom: 30px
+
+    transition: 0.3s 0.25s ease-out opacity, 0.3s 0.25s ease-out bottom;
+    visibility: visible;
+  }
+}
+
+
+/* ==========================================================================
+   TODO: remove when using explicit mixin
+   ========================================================================== */
+
+@css {
+  .nav-flyout .corner-ad {
+    opacity: 0;
+  }
+
+  .nav-flyout.active .corner-ad {
+    opacity: 1;
+  }
+}

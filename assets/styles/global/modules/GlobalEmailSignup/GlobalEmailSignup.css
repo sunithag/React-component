@@ -1,0 +1,48 @@
+.global-email-signup {
+  text-align: center;
+breakpoint($breakpoint-m)
+}
+.global-email-signup .global-email-signup-privacy-link {
+  font-size: 12px;
+}
+.global-email-signup-heading {
+  display: inline-block;
+  margin-bottom: 8px;
+  width: 304px;
+breakpoint($breakpoint-s)
+breakpoint($breakpoint-m)
+breakpoint($breakpoint-l)
+}
+.global-email-signup-heading p {
+  margin: 0;
+  text-align: left;
+}
+.global-email-signup-form {
+  display: inline-block;
+  margin-bottom: 10px;
+  vertical-align: top;
+breakpoint($breakpoint-m)
+}
+.global-email-signup-form label.visuallyhidden {
+  margin-top: 0;
+}
+.global-email-signup-form .validation-group {
+  width: auto;
+  vertical-align: top;
+}
+.global-email-signup-form .validation-group .error-label {
+  display: table;
+  padding: 0;
+}
+.global-email-signup-form .form-control {
+  vertical-align: top;
+  margin: 0;
+  width: 216px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.global-email-signup-form .btn {
+  padding: 0 10px;
+  vertical-align: top;
+  font-size: 15px;
+}

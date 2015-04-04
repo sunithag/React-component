@@ -1,0 +1,145 @@
+/*
+Variables
+
+Styleguide 4
+*/
+/* ==========================================================================
+   Development Paths
+   ========================================================================== */
+/* ==========================================================================
+   Font Stacks
+   ========================================================================== */
+/*
+Colors
+
+Styleguide 4.1
+*/
+/*
+Responsive Breakpoints
+
+We use five major breakpoints in Atlas. These breakpoints are primarily meant
+for use in `min-width` "mobile-first" media queries:
+
+```
+// Applies to screens wider than or equal to 768px.
+
+.component {
+  @media (min-width: $breakpoint-m) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+In cases where `max-width` "desktop-first" media queries are necessary, use the
+accompanying `-max` variants of the breakpoint media queries:
+
+```
+// Applies to screens more narrow than the "large" breakpoint of 1024px.
+
+.component {
+  @media (max-width: $breakpoint-m-max) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+Each `-max` variable is 1px more narrow than the *next largest* breakpoint, preventing
+overlap between `min-width` and `max-width` media queries.
+
+|                        | Default               | Extra Small           |  Small               | Medium              | Large               | Extra Large         |
+| :---------------       | :--------             | :--                   | :----------          | :----------         | :----------         | :-----------        |
+| **Screen Sizes**       | `< 320px`             | `>= 320px`            | `>= 480px`           | `>= 768px`          | `>= 1024px`         | `>= 1364px`         |
+| **Variable**           | None                  | `$breakpoint-xs`      | `$breakpoint-s`      | `$breakpoint-m`     | `$breakpoint-l`     | `$breakpoint-xl`    |
+| **Max-width Variable** | None                  | `$breakpoint-xxs-max` | `$breakpoint-xs-max` | `$breakpoint-s-max` | `$breakpoint-m-max` | `$breakpoint-l-max` |
+
+Styleguide 4.2
+*/
+/*
+Deprecated: Responsive Breakpoints
+
+These variables are deprecated in favor of the new breakpoint set above.
+
+We use four major breakpoints in Atlas. These breakpoints are primarily meant
+for use in `min-width` "mobile-first" media queries:
+
+```
+// Applies to screens wider than or equal to than 768px.
+
+.component {
+  @media (min-width: $screen-m) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+In cases where `max-width` "desktop-first" media queries are necessary, use the
+accompanying `-max` variants of the breakpoint media queries:
+
+```
+// Applies to screens more narrow than the "large" breakpoint of 768px.
+
+.component {
+  @media (max-width: $screen-m-max) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+Each `-max` variable is 1px more narrow than the *next largest* breakpoint, preventing
+overlap between `min-width` and `max-width` media queries.
+
+|                        | Default (Small) | Medium          | Large           | Extra Large     | Extra Extra Large |
+| :---------------       | :--------       | :----------     | :----------     | :----------     | :-----------      |
+| **Screen Sizes**       | `< 544px`       | `>= 544px`      | `>= 768px`      | `>= 992px`      | `>= 1366px`       |
+| **Variable**           | None            | `$screen-m`     | `$screen-l`     | `$screen-xl`    | `$screen-xxl`     |
+| **Max-width Variable** | None            | `$screen-s-max` | `$screen-m-max` | `$screen-l-max` | `$screen-xl-max`  |
+
+Styleguide 4.3
+*/
+/*
+Spacing
+
+Spacing between and within different elements can be achieved with the
+`-margin` and `-padding` variables. This ensures consistent spacing throughout
+the page, and opens up the process for responsive spacing in the (near)
+future.
+
+Each variable is a non-responsive, fixed unit.
+
+For ease of moving different components around the page using `margin`,
+see [Modules and Margins](#3-modules-and-margins).
+
+```
+// Applies 30px to the top margin and 5px to the left margin, and
+// applies 10px padding on all sides.
+
+.component {
+  margin-top: $m-margin;
+  margin-left: $xxs-margin;
+  padding: $xs-padding;
+}
+```
+
+|                        | Extra Extra Small | Extra Small    | Small          | Medium          | Large        | Extra Large    | Extra Extra Large |
+| :---------------       | :--------         | :----------    | :----------    | :----------     | :----------- | :----------    | :-----------      |
+| **Size**               | `4px`             | `12px`         | `20px`         | `32px`          | `40px`       | `48px`         | `60px`            |
+| **Margin variable**    | `$xxs-margin`     | `$xs-margin`   | `$s-margin`    | `$m-margin`     | `$l-margin`  | `$xl-margin`    | `$xxl-margin`    |
+| **Padding variable**   | `$xxs-padding`    | `$xs-padding`  | `$s-padding`   | `$m-padding`    | `$l-padding` | `$xl-padding`   | `$xxl-padding`   |
+
+
+
+Styleguide 4.4
+*/
+/* ==========================================================================
+   Walmarticons
+   ========================================================================== */
+/* ==========================================================================
+   Z-index
+   ========================================================================== */
+/* ==========================================================================
+   Grid
+   ========================================================================== */

@@ -1,0 +1,120 @@
+.trending-page-wrapper .trending-tile-align {
+  min-width: 1024px;
+}
+.trending-page-wrapper .trending-tile-align > div {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 930px;
+}
+@media (min-width: 1366px) {
+  .trending-page-wrapper .trending-tile-align > div {
+    width: 1240px;
+  }
+}
+.trending-page-wrapper h1 {
+  margin-bottom: 15px;
+}
+.trending-page-wrapper .trending-filters-container.fixed {
+  position: fixed;
+  top: 49px;
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+.trending-page-wrapper .trending-filters-container.fixed .trending-filters {
+  animation: header-slide-down 0.3s ease forwards;
+  padding: 10px 0;
+}
+.trending-page-wrapper .trending-filters-container .trending-filters {
+  padding-bottom: 20px;
+}
+.trending-page-wrapper .spinner {
+  position: fixed;
+}
+.trending-page-wrapper .trending-filter-categories .arrow-link {
+  margin-left: 20px;
+}
+.trending-page-wrapper .trending-filter-categories .collapse-list-action:after {
+  transform: rotate(270deg);
+}
+.trending-page-wrapper .trending-filter-categories .btn-badge {
+  margin-left: 10px;
+}
+.trending-page-wrapper .trending-filter-categories .btn-badge:first-child {
+  margin-left: 0px;
+}
+.trending-page-wrapper .trending-filter-categories .categories-list {
+  margin-top: 10px;
+}
+.trending-page-wrapper .trending-filter-categories .categories-list:first-child {
+  margin-top: 0px;
+}
+.trending-items-container {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 930px;
+  list-style: none;
+}
+@media (min-width: 1366px) {
+  .trending-items-container {
+    max-width: 1240px;
+  }
+}
+.trending-product {
+  width: 310px;
+  padding: 10px;
+}
+.trending-product .tile {
+  width: 100%;
+  padding-top: 0;
+}
+.trending-product .tile .product-title {
+  margin: 0;
+  padding: 5px 15px;
+  background-color: $blue-pale;
+  border-radius: 4px 4px 0 0;
+  color: $black;
+  font-size: 13px;
+  font-weight: 600;
+}
+.trending-product .tile .product-title .product-type {
+  float: left;
+}
+.trending-product .tile .product-title .time-stamp {
+  float: right;
+  font-size: 11px;
+}
+.trending-product .tile .product-title.BEST_SELLER_ITEMS {
+  color: $white;
+  background-color: $orange;
+}
+.trending-product .tile .tile-section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.trending-product .tile .tile-heading {
+  height: 34px;
+}
+.trending-product .tile .tile-controls .btn-link {
+  float: right;
+}
+.trending-product .tile .product-image {
+  margin: 15px auto;
+  height: 259px;
+  width: 259px;
+}
+.trending-product .tile .price-display {
+  height: 27px;
+}
+.trending-product .tile .stars {
+  margin-top: 8px;
+}
+.trending-product .tile .pins {
+  margin-top: 3px;
+  color: #666;
+  font-size: 12px;
+  font-weight: 400;
+}
+.trending-product .tile .pins .wmicon-pinterest {
+  color: $red;
+}

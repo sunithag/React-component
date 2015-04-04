@@ -1,0 +1,168 @@
+.global-eyebrow-nav-wrapper {
+  +breakpoint($breakpoint-l) {
+    bottom: 138px;
+  }
+
+  a,
+  .dropdown-link {
+    +breakpoint($breakpoint-l) {
+      color: $white;
+      font-weight: 600;
+    }
+
+    &:hover {
+      +breakpoint($breakpoint-l) {
+        color: $blue-tertiary;
+      }
+    }
+  }
+
+  .header-flyout-modal {
+    a {
+      color: $blue;
+      font-weight: 400;
+
+      &:hover {
+        color: $blue-hover;
+      }
+    }
+  }
+}
+
+.global-eyebrow-nav {
+  height: 100%;
+
+  +breakpoint($breakpoint-l) {
+    height: 0; // Move up to top of header within container without shifting elements
+  }
+}
+
+.nav-customer {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+
+  +breakpoint($breakpoint-l) {
+    margin: 10px 0;
+
+    font-size: 12px;
+    font-weight: 400;
+    text-align: right;
+  }
+
+  // Hide eyebrow nav to minimize visible layout thrashing due to FOUT when
+  // webfonts are loading.
+  .wf-loading & {
+    opacity: 0;
+  }
+
+  // HACK: Chrome for Android cuts off the top of some of these icons due to low
+  // line height. This adds extra padding to prevent the issue.
+  .nav-customer-list-link {
+    +breakpoint($breakpoint-l) {
+      margin-top: -5px;
+      padding-top: 5px;
+    }
+  }
+
+  .nav-customer-list-link:after {
+    display: none; // hide dropdown arrow in offcanvas nav
+
+    +breakpoint($breakpoint-l) {
+      display: inline-block;
+    }
+  }
+
+  .wmicon {
+    width: 1em;
+    margin-right: 5px;
+
+    font-size: 14px;
+    line-height: 15px;
+    vertical-align: text-bottom;
+  }
+
+  // Overrides for non-standard icons widths
+  .wmicon-pin {
+    width: unit((11/14), em);
+  }
+}
+
+.nav-customer-list {
+  margin: 0;
+  padding: 0;
+
+  > li {
+    // IE8 HACK: List items with flyouts have a position: relative wrapper
+    // around the visible portion of the item. In IE8, these items render before
+    // their position: static siblings. This position declaration forces all
+    // items in the list to render at the same time.
+    position: relative;
+
+    display: block;
+    margin: 0;
+
+    +breakpoint($breakpoint-l) {
+      margin-left: 20px;
+
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    .flyout {
+      width: 100%;
+
+      +breakpoint($breakpoint-l) {
+        width: auto;
+      }
+
+      &.active {
+        .flyout-modal {
+          +breakpoint($breakpoint-l) {
+            display: block;
+          }
+        }
+      }
+
+      .flyout-modal {
+        display: none;
+      }
+    }
+
+    &.global-eyebrow-nav-storefinder {
+      display: none;
+    }
+
+    .nav-main-entry {
+      padding-left: 0;
+    }
+  }
+
+  .eyebrownav-registry {
+    margin-top: 6px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .eyebrownav-registry-links {
+    margin: 0;
+
+    a {
+      color: $grey-medium;
+      font-size: 13px;
+      font-weight: 600;
+
+      &:hover {
+        color: $grey-dark;
+      }
+    }
+  }
+}
+
+.header-lists-flyout-modal {
+  width: 276px;
+}

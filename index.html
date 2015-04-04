@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- CSS : implied media="all" -->
+  <link rel='stylesheet' href='assets/styles/reset.css'>
+  <link rel='stylesheet' href='assets/styles/base.css'>
+</head>
+<body>
+  <!-- to get started with react we need react library and corresponding in browser jsx tranformer -->
+  <script src="https://fb.me/react-0.13.1.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.1.js"></script>
+  <script type="text/jsx" src="../components/Header.jsx"></script>
+  <script type="text/jsx" src="../components/ProductImage.jsx"></script>
+  <script type="text/jsx" src="../components/Price.jsx"></script>
+  <script type="text/jsx" src="../components/Title.jsx"></script>
+  <script type="text/jsx" src="../components/Item.jsx"></script>
+  <script type="text/jsx" src="../components/SearchResults.jsx"></script>
+  <script type="text/jsx" src="../components/App.jsx"></script>
+
+  <script type="text/jsx">
+  var app = React.createElement(App);
+  React.render(app, document.body);
+  </script>
+</body>
+</html>

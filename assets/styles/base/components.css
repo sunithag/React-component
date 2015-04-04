@@ -1,0 +1,1801 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+/*
+Modal
+
+The default modal component does not include any interior padding to
+accomodate modals with sections that expand to the edges of the component.
+The `.modal-padded` modifier adds standard padding.
+
+The `.modal-fixed` modifier adds `position: fixed` with the result
+that the modal stays in place when the page is scrolled.
+
+.modal-padded - A variant with padding.
+
+Styleguide 8.1
+*/
+.modal {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  display: none;
+  border: 4px solid $blue;
+  border-radius: 10px;
+  background: $white;
+}
+.modal.active {
+  display: block;
+}
+.modal:focus {
+  outline: none;
+}
+@media (min-width: $screen-l) {
+  .modal {
+    width: 960px;
+    margin-left: -480px;
+  }
+}
+@media (max-width: $screen-m-max) {
+  .modal {
+    left: 20px;
+    right: 20px;
+  }
+}
+.modal-padded {
+  padding: 40px 30px 30px;
+}
+.modal-fixed {
+  position: fixed;
+}
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: $blue;
+  color: $white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background: $white;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.modal-backdrop.active {
+  display: block;
+}
+.modal-prevent-double-scroll {
+  overflow: hidden;
+}
+/*
+Tray Modal
+
+This "tray" modal is a responsive variant of the standard modal, using a
+right-aligned fixed position default style for small screen sizes, and a
+screen centered layout for larger screen sizes (similar to current modal)
+
+Styleguide 8.1.1
+*/
+.tray-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  display: none;
+  width: 85%;
+  max-width: remify(384px);
+  border: 0 solid $blue;
+  border-left-width: 4px;
+  background: $white;
+  transition: all 500ms ease;
+}
+.tray-modal.active {
+  display: block;
+}
+.tray-modal:focus {
+  outline: none;
+}
+@media (min-width: $screen-l) {
+  .tray-modal {
+    bottom: auto;
+    left: 0;
+    margin: 2em auto;
+    width: 100%;
+    max-width: 40em;
+    border-radius: 10px;
+    border-width: 4px;
+  }
+}
+.tray-modal-content {
+  position: relative;
+}
+.tray-modal-close {
+  position: absolute;
+  top: 10px;
+  left: -18px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: $blue;
+  color: $white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+}
+@media (min-width: $screen-l) {
+  .tray-modal-close {
+    top: -14px;
+    right: -14px;
+    left: auto;
+  }
+}
+/*
+Alert Modal
+
+Styleguide 8.2
+*/
+/*
+Dropdowns
+
+.dropdown-alt - Alternate variant.
+.dropdown-dark - Dark Variant
+.dropdown-wide - Wide Variant
+.dropdown-alt.dropdown-wide - Wide alternate variant.
+.dropdown-dark.dropdown-wide - Wide dark variant.
+.dropdown-full - Full-width/Block variant.
+.dropdown-link - Link variant.
+
+Styleguide 8.3
+*/
+.dropdown:after,
+.dropdown-link:after {
+  content: "";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 0 0 0 5px;
+  border: 4px solid transparent;
+  border-top-color: $blue;
+  vertical-align: middle;
+}
+.dropdown-wide,
+.dropdown-full {
+  position: relative;
+  padding-right: 28px;
+  text-align: left;
+}
+.dropdown-wide:after,
+.dropdown-full:after {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  margin-top: -2px;
+}
+.dropdown {
+  height: 30px;
+  padding: 0 14px;
+  border: 1px solid $grey-light;
+  border-radius: 100px;
+  background: $white;
+  color: $grey-dark;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 28px;
+  position: relative;
+}
+.dropdown:after {
+  margin-left: 14px;
+}
+.dropdown:hover,
+.flyout.active .dropdown {
+  border-color: $blue-secondary;
+}
+.dropdown-alt {
+  border-color: $blue-pale;
+  background: $blue-pale;
+}
+.dropdown-alt:hover {
+  border-color: $blue-pale;
+}
+.dropdown-dark {
+  color: $white;
+  border-color: $blue;
+  background: $blue;
+}
+.dropdown-dark:hover {
+  border-color: $blue-hover;
+  background-color: $blue-hover;
+}
+.dropdown-dark:active {
+  border-color: $blue-active;
+  background-color: $blue-active;
+}
+.dropdown-dark:after {
+  border-top-color: $white;
+}
+.dropdown-wide {
+  width: 148px;
+}
+.dropdown-full {
+  display: block;
+  width: 100%;
+}
+.dropdown-link {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.dropdown-link:after {
+  border-top-color: $yellow;
+  transition: 0.3s ease transform;
+  transform-origin: center 2px;
+}
+.dropdown-link:hover:after,
+.flyout.active > .dropdown-link:after {
+  transform: rotate(-180deg);
+}
+.no-csstransforms .dropdown-link:hover:after,
+.no-csstransforms .flyout.active > .dropdown-link:after {
+  margin-top: -8px;
+  border-top-color: transparent;
+  border-bottom-color: $yellow;
+}
+/*
+Flyout
+
+.flyout-top - Positioned above button.
+.flyout-right - Positioned to right of button.
+.flyout-bottom - Positioned below button.
+.flyout-left - Positioned to left of button.
+
+Styleguide 8.4
+*/
+.flyout {
+  position: relative;
+  display: inline-block;
+}
+.flyout.hidden {
+  visibility: hidden;
+}
+.flyout.hidden,
+.flyout.hidden .flyout-modal {
+  display: block;
+}
+.flyout-block {
+  display: block;
+  width: 100%;
+}
+.flyout.active > .flyout-modal,
+.flyout.active > .flyout-backdrop {
+  display: block;
+}
+.flyout.active > .flyout-modal {
+  animation: flyout-slide-bottom 0.3s ease forwards;
+}
+.flyout.active >.no-animation .flyout-modal {
+  animation: none;
+}
+.flyout-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+.flyout-toggle {
+  position: relative;
+}
+.flyout-modal:before,
+.flyout-align-caret:before,
+.flyout-modal:after,
+.flyout-align-caret:after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.flyout-modal:after,
+.flyout-align-caret:after {
+  width: 0;
+  height: 0;
+  border: 13px solid transparent;
+}
+.flyout-modal:before,
+.flyout-align-caret:before {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-width: 1px 1px 0 0;
+  box-shadow: 1px -1px 2px rgba(0,0,0,0.12);
+  transform: rotate(-45deg);
+}
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  .flyout-modal:before,
+  .flyout-align-caret:before {
+    box-shadow: 2px -2px 2px -1px rgba(0,0,0,0.1);
+  }
+}
+.no-boxshadow .flyout-modal,
+.no-boxshadow .flyout-align-caret {
+  border: 1px solid $grey-light;
+}
+.no-boxshadow .flyout-modal:before,
+.no-boxshadow .flyout-align-caret:before {
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+}
+.flyout-modal {
+  position: absolute;
+  display: none;
+  width: 276px;
+  margin-left: -138px;
+  padding: 20px;
+  background-color: $white;
+  background-color: rgba(255,255,255,0.96);
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.12);
+}
+/*
+Flyout Sizes
+
+.flyout-modal-narrow - Narrow flyout modal.
+.flyout-modal-wide - Wide flyout modal.
+.flyout-modal-extrawide - Extrawide flyout modal.
+.flyout-fluid - Fluid flyout.
+
+Styleguide 8.5
+*/
+.flyout-modal-narrow {
+  width: 248px;
+  margin-left: -124px;
+}
+.flyout-modal-wide {
+  width: 308px;
+  margin-left: -154px;
+}
+.flyout-modal-extrawide {
+  width: 388px;
+  margin-left: -194px;
+}
+.flyout-top .flyout-modal,
+.flyout-bottom .flyout-modal {
+  left: 50%;
+}
+.flyout-top .flyout-modal:before,
+.flyout-bottom .flyout-modal:before,
+.flyout-top .flyout-align-caret:before,
+.flyout-bottom .flyout-align-caret:before,
+.flyout-top .flyout-modal:after,
+.flyout-bottom .flyout-modal:after,
+.flyout-top .flyout-align-caret:after,
+.flyout-bottom .flyout-align-caret:after {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.flyout-right .flyout-modal,
+.flyout-left .flyout-modal {
+  top: 50%;
+}
+.flyout-right .flyout-modal:before,
+.flyout-left .flyout-modal:before,
+.flyout-right .flyout-align-caret:before,
+.flyout-left .flyout-align-caret:before,
+.flyout-right .flyout-modal:after,
+.flyout-left .flyout-modal:after,
+.flyout-right .flyout-align-caret:after,
+.flyout-left .flyout-align-caret:after {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.flyout-top .flyout-modal {
+  bottom: 100%;
+  margin-bottom: 14px;
+}
+.flyout-top .flyout-modal:before,
+.flyout-top .flyout-align-caret:before,
+.flyout-top .flyout-modal:after,
+.flyout-top .flyout-align-caret:after {
+  top: 100%;
+}
+.flyout-top .flyout-modal:before,
+.flyout-top .flyout-align-caret:before {
+  margin-top: -9px;
+  transform: rotate(135deg);
+}
+.no-boxshadow .flyout-top .flyout-modal:before,
+.no-boxshadow .flyout-top .flyout-align-caret:before {
+  margin-top: 0;
+  border-top-color: $grey-light;
+}
+.flyout-top .flyout-modal:after,
+.flyout-top .flyout-align-caret:after {
+  border-top-color: $white;
+  border-top-color: rgba(255,255,255,0.96);
+}
+.flyout-top .flyout-backdrop {
+  top: -50px;
+}
+.flyout-top.active .flyout-modal {
+  animation-name: flyout-slide-top;
+}
+.flyout-right .flyout-modal {
+  left: 100%;
+  margin-left: 14px;
+}
+.flyout-right .flyout-modal:before,
+.flyout-right .flyout-align-caret:before,
+.flyout-right .flyout-modal:after,
+.flyout-right .flyout-align-caret:after {
+  right: 100%;
+}
+.flyout-right .flyout-modal:before,
+.flyout-right .flyout-align-caret:before {
+  margin-right: -9px;
+  transform: rotate(-135deg);
+}
+.no-boxshadow .flyout-right .flyout-modal:before,
+.no-boxshadow .flyout-right .flyout-align-caret:before {
+  margin-right: 0;
+  border-right-color: $grey-light;
+}
+.flyout-right .flyout-modal:after,
+.flyout-right .flyout-align-caret:after {
+  border-right-color: $white;
+  border-right-color: rgba(255,255,255,0.96);
+}
+.flyout-right .flyout-backdrop {
+  right: -50px;
+}
+.flyout-right.active .flyout-modal {
+  animation-name: flyout-slide-right;
+}
+.flyout-bottom .flyout-modal {
+  top: 100%;
+  margin-top: 14px;
+}
+.flyout-bottom .flyout-modal:before,
+.flyout-bottom .flyout-align-caret:before,
+.flyout-bottom .flyout-modal:after,
+.flyout-bottom .flyout-align-caret:after {
+  bottom: 100%;
+}
+.flyout-bottom .flyout-modal:before,
+.flyout-bottom .flyout-align-caret:before {
+  margin-bottom: -9px;
+  transform: rotate(-45deg);
+}
+.no-boxshadow .flyout-bottom .flyout-modal:before,
+.no-boxshadow .flyout-bottom .flyout-align-caret:before {
+  margin-bottom: 0;
+  border-bottom-color: $grey-light;
+}
+.flyout-bottom .flyout-modal:after,
+.flyout-bottom .flyout-align-caret:after {
+  border-bottom-color: $white;
+  border-bottom-color: rgba(255,255,255,0.96);
+}
+.flyout-bottom .flyout-backdrop {
+  bottom: -50px;
+}
+.flyout-bottom.active .flyout-modal {
+  animation-name: flyout-slide-bottom;
+}
+.flyout-left .flyout-modal {
+  right: 100%;
+  margin-right: 14px;
+}
+.flyout-left .flyout-modal:before,
+.flyout-left .flyout-align-caret:before,
+.flyout-left .flyout-modal:after,
+.flyout-left .flyout-align-caret:after {
+  left: 100%;
+}
+.flyout-left .flyout-modal:before,
+.flyout-left .flyout-align-caret:before {
+  margin-left: -9px;
+  transform: rotate(45deg);
+}
+.no-boxshadow .flyout-left .flyout-modal:before,
+.no-boxshadow .flyout-left .flyout-align-caret:before {
+  margin-left: 0;
+  border-left-color: $grey-light;
+}
+.flyout-left .flyout-modal:after,
+.flyout-left .flyout-align-caret:after {
+  border-left-color: $white;
+  border-left-color: rgba(255,255,255,0.96);
+}
+.flyout-left .flyout-backdrop {
+  left: -50px;
+}
+.flyout-left.active .flyout-modal {
+  animation-name: flyout-slide-left;
+}
+.flyout-fluid .flyout-modal {
+  width: auto;
+  white-space: nowrap;
+}
+/*
+Flyout Alignment
+
+Alignment classes anchor the flyout to the right or left side of its toggle,
+instead of centering it. This is useful when a flyout should rest on the edge
+of a container.
+
+To use, apply the `.flyout-align` and `.flyout-align-{direction}` classes to
+the `.flyout` and the `.flyout-align-caret` to the toggle.
+
+**NOTE**: `.flyout-align` currently only works with `.flyout-top` and
+`.flyout-bottom`. It is incompatible with `.flyout-left` and `.flyout-right`.
+
+.flyout-top.flyout-align-right - Right aligned modal.
+.flyout-top.flyout-align-left - Left aligned modal.
+.flyout-bottom.flyout-align-right - Right aligned modal.
+.flyout-bottom.flyout-align-left - Left aligned modal.
+
+Styleguide 8.6
+*/
+.flyout-align .flyout-modal:before,
+.flyout-align .flyout-modal:after {
+  display: none;
+}
+.flyout-align-caret {
+  position: relative;
+}
+.flyout-align-caret:before,
+.flyout-align-caret:after {
+  display: none;
+}
+.flyout.active .flyout-align-caret:before,
+.flyout.active .flyout-align-caret:after {
+  display: block;
+}
+.flyout-top .flyout-align-caret:before,
+.flyout-top .flyout-align-caret:after {
+  bottom: 100%;
+  top: auto !important;
+}
+.flyout-top .flyout-align-caret:before {
+  margin-bottom: 4px;
+}
+.no-boxshadow .flyout-top .flyout-align-caret:before {
+  margin-bottom: -14px;
+}
+.flyout-top .flyout-align-caret:after {
+  margin-bottom: -12px;
+}
+.no-boxshadow .flyout-top .flyout-align-caret:after {
+  margin-bottom: -10px;
+}
+.flyout-bottom .flyout-align-caret:before,
+.flyout-bottom .flyout-align-caret:after {
+  top: 100%;
+  bottom: auto !important;
+}
+.flyout-bottom .flyout-align-caret:before {
+  margin-top: 4px;
+}
+.no-boxshadow .flyout-bottom .flyout-align-caret:before {
+  margin-top: -14px;
+}
+.flyout-bottom .flyout-align-caret:after {
+  margin-top: -12px;
+}
+.no-boxshadow .flyout-bottom .flyout-align-caret:after {
+  margin-top: -10px;
+}
+.flyout-align-right .flyout-modal {
+  right: 0;
+  left: auto;
+  margin-right: 0;
+}
+.flyout-align-left .flyout-modal {
+  left: 0;
+  right: auto;
+  margin-left: 0;
+}
+/*
+Flyout Close Button
+
+Styleguide 8.7
+*/
+.flyout-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  padding: 0 0 1px;
+  border: 0;
+  border-radius: 50%;
+  background: $grey-cool;
+  color: $white;
+  font-size: 13px;
+  line-height: 0;
+  text-align: center;
+}
+/*
+Meter
+
+Styleguide 8.8
+*/
+.meter {
+  position: relative;
+  overflow: hidden;
+  width: 190px;
+  height: 35px;
+  border-radius: 8px;
+  background: $grey-light;
+}
+.meter-bar {
+  display: block;
+  height: 100%;
+  background: $yellow;
+}
+.meter-text {
+  position: absolute;
+  right: 0;
+  left: 0;
+  color: $white;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  text-align: center;
+}
+/*
+Percentage Circle
+http://circle.firchow.net/
+
+Percentage display meter in a circle format. It uses the class
+`.meter-circle-p80` where the `p80` value is the percent to fill the meter.
+
+Styleguide 8.8.1
+*/
+.meter-circle-p51 .meter-circle-slice,
+.meter-circle-p52 .meter-circle-slice,
+.meter-circle-p53 .meter-circle-slice,
+.meter-circle-p54 .meter-circle-slice,
+.meter-circle-p55 .meter-circle-slice,
+.meter-circle-p56 .meter-circle-slice,
+.meter-circle-p57 .meter-circle-slice,
+.meter-circle-p58 .meter-circle-slice,
+.meter-circle-p59 .meter-circle-slice,
+.meter-circle-p60 .meter-circle-slice,
+.meter-circle-p61 .meter-circle-slice,
+.meter-circle-p62 .meter-circle-slice,
+.meter-circle-p63 .meter-circle-slice,
+.meter-circle-p64 .meter-circle-slice,
+.meter-circle-p65 .meter-circle-slice,
+.meter-circle-p66 .meter-circle-slice,
+.meter-circle-p67 .meter-circle-slice,
+.meter-circle-p68 .meter-circle-slice,
+.meter-circle-p69 .meter-circle-slice,
+.meter-circle-p70 .meter-circle-slice,
+.meter-circle-p71 .meter-circle-slice,
+.meter-circle-p72 .meter-circle-slice,
+.meter-circle-p73 .meter-circle-slice,
+.meter-circle-p74 .meter-circle-slice,
+.meter-circle-p75 .meter-circle-slice,
+.meter-circle-p76 .meter-circle-slice,
+.meter-circle-p77 .meter-circle-slice,
+.meter-circle-p78 .meter-circle-slice,
+.meter-circle-p79 .meter-circle-slice,
+.meter-circle-p80 .meter-circle-slice,
+.meter-circle-p81 .meter-circle-slice,
+.meter-circle-p82 .meter-circle-slice,
+.meter-circle-p83 .meter-circle-slice,
+.meter-circle-p84 .meter-circle-slice,
+.meter-circle-p85 .meter-circle-slice,
+.meter-circle-p86 .meter-circle-slice,
+.meter-circle-p87 .meter-circle-slice,
+.meter-circle-p88 .meter-circle-slice,
+.meter-circle-p89 .meter-circle-slice,
+.meter-circle-p90 .meter-circle-slice,
+.meter-circle-p91 .meter-circle-slice,
+.meter-circle-p92 .meter-circle-slice,
+.meter-circle-p93 .meter-circle-slice,
+.meter-circle-p94 .meter-circle-slice,
+.meter-circle-p95 .meter-circle-slice,
+.meter-circle-p96 .meter-circle-slice,
+.meter-circle-p97 .meter-circle-slice,
+.meter-circle-p98 .meter-circle-slice,
+.meter-circle-p99 .meter-circle-slice,
+.meter-circle-p100 .meter-circle-slice {
+  clip: rect(auto, auto, auto, auto);
+}
+.meter-circle-p51 .meter-circle-fill,
+.meter-circle-p52 .meter-circle-fill,
+.meter-circle-p53 .meter-circle-fill,
+.meter-circle-p54 .meter-circle-fill,
+.meter-circle-p55 .meter-circle-fill,
+.meter-circle-p56 .meter-circle-fill,
+.meter-circle-p57 .meter-circle-fill,
+.meter-circle-p58 .meter-circle-fill,
+.meter-circle-p59 .meter-circle-fill,
+.meter-circle-p60 .meter-circle-fill,
+.meter-circle-p61 .meter-circle-fill,
+.meter-circle-p62 .meter-circle-fill,
+.meter-circle-p63 .meter-circle-fill,
+.meter-circle-p64 .meter-circle-fill,
+.meter-circle-p65 .meter-circle-fill,
+.meter-circle-p66 .meter-circle-fill,
+.meter-circle-p67 .meter-circle-fill,
+.meter-circle-p68 .meter-circle-fill,
+.meter-circle-p69 .meter-circle-fill,
+.meter-circle-p70 .meter-circle-fill,
+.meter-circle-p71 .meter-circle-fill,
+.meter-circle-p72 .meter-circle-fill,
+.meter-circle-p73 .meter-circle-fill,
+.meter-circle-p74 .meter-circle-fill,
+.meter-circle-p75 .meter-circle-fill,
+.meter-circle-p76 .meter-circle-fill,
+.meter-circle-p77 .meter-circle-fill,
+.meter-circle-p78 .meter-circle-fill,
+.meter-circle-p79 .meter-circle-fill,
+.meter-circle-p80 .meter-circle-fill,
+.meter-circle-p81 .meter-circle-fill,
+.meter-circle-p82 .meter-circle-fill,
+.meter-circle-p83 .meter-circle-fill,
+.meter-circle-p84 .meter-circle-fill,
+.meter-circle-p85 .meter-circle-fill,
+.meter-circle-p86 .meter-circle-fill,
+.meter-circle-p87 .meter-circle-fill,
+.meter-circle-p88 .meter-circle-fill,
+.meter-circle-p89 .meter-circle-fill,
+.meter-circle-p90 .meter-circle-fill,
+.meter-circle-p91 .meter-circle-fill,
+.meter-circle-p92 .meter-circle-fill,
+.meter-circle-p93 .meter-circle-fill,
+.meter-circle-p94 .meter-circle-fill,
+.meter-circle-p95 .meter-circle-fill,
+.meter-circle-p96 .meter-circle-fill,
+.meter-circle-p97 .meter-circle-fill,
+.meter-circle-p98 .meter-circle-fill,
+.meter-circle-p99 .meter-circle-fill,
+.meter-circle-p100 .meter-circle-fill {
+  position: absolute;
+  width: 0.84em;
+  height: 0.84em;
+  border: 0.08em solid #eec334;
+  border-radius: 50%;
+  clip: rect(0em, 0.5em, 1em, 0em);
+  transform: rotate(0deg);
+}
+.meter-circle-bar {
+  position: absolute;
+  width: 0.84em;
+  height: 0.84em;
+  border: 0.08em solid $yellow;
+  border-radius: 50%;
+  clip: rect(0em, 0.5em, 1em, 0em);
+  transform: rotate(0deg);
+}
+.meter-circle-p51 .meter-circle-bar:after,
+.meter-circle-p51 .meter-circle-fill,
+.meter-circle-p52 .meter-circle-bar:after,
+.meter-circle-p52 .meter-circle-fill,
+.meter-circle-p53 .meter-circle-bar:after,
+.meter-circle-p53 .meter-circle-fill,
+.meter-circle-p54 .meter-circle-bar:after,
+.meter-circle-p54 .meter-circle-fill,
+.meter-circle-p55 .bar:after,
+.meter-circle-p55 .meter-circle-fill,
+.meter-circle-p56 .meter-circle-bar:after,
+.meter-circle-p56 .meter-circle-fill,
+.meter-circle-p57 .meter-circle-bar:after,
+.meter-circle-p57 .meter-circle-fill,
+.meter-circle-p58 .meter-circle-bar:after,
+.meter-circle-p58 .meter-circle-fill,
+.meter-circle-p59 .meter-circle-bar:after,
+.meter-circle-p59 .meter-circle-fill,
+.meter-circle-p60 .meter-circle-bar:after,
+.meter-circle-p60 .meter-circle-fill,
+.meter-circle-p61 .meter-circle-bar:after,
+.meter-circle-p61 .meter-circle-fill,
+.meter-circle-p62 .meter-circle-bar:after,
+.meter-circle-p62 .meter-circle-fill,
+.meter-circle-p63 .meter-circle-bar:after,
+.meter-circle-p63 .meter-circle-fill,
+.meter-circle-p64 .bar:after,
+.meter-circle-p64 .meter-circle-fill,
+.meter-circle-p65 .meter-circle-bar:after,
+.meter-circle-p65 .meter-circle-fill,
+.meter-circle-p66 .meter-circle-bar:after,
+.meter-circle-p66 .meter-circle-fill,
+.meter-circle-p67 .meter-circle-bar:after,
+.meter-circle-p67 .meter-circle-fill,
+.meter-circle-p68 .meter-circle-bar:after,
+.meter-circle-p68 .meter-circle-fill,
+.meter-circle-p69 .meter-circle-bar:after,
+.meter-circle-p69 .meter-circle-fill,
+.meter-circle-p70 .meter-circle-bar:after,
+.meter-circle-p70 .meter-circle-fill,
+.meter-circle-p71 .meter-circle-bar:after,
+.meter-circle-p71 .meter-circle-fill,
+.meter-circle-p72 .meter-circle-bar:after,
+.meter-circle-p72 .meter-circle-fill,
+.meter-circle-p73 .meter-circle-bar:after,
+.meter-circle-p73 .meter-circle-fill,
+.meter-circle-p74 .meter-circle-bar:after,
+.meter-circle-p74 .meter-circle-fill,
+.meter-circle-p75 .meter-circle-bar:after,
+.meter-circle-p75 .meter-circle-fill,
+.meter-circle-p76 .meter-circle-bar:after,
+.meter-circle-p76 .meter-circle-fill,
+.meter-circle-p77 .meter-circle-bar:after,
+.meter-circle-p77 .meter-circle-fill,
+.meter-circle-p78 .meter-circle-bar:after,
+.meter-circle-p78 .meter-circle-fill,
+.meter-circle-p79 .meter-circle-bar:after,
+.meter-circle-p79 .meter-circle-fill,
+.meter-circle-p80 .meter-circle-bar:after,
+.meter-circle-p80 .meter-circle-fill,
+.meter-circle-p81 .meter-circle-bar:after,
+.meter-circle-p81 .meter-circle-fill,
+.meter-circle-p82 .meter-circle-bar:after,
+.meter-circle-p82 .meter-circle-fill,
+.meter-circle-p83 .meter-circle-bar:after,
+.meter-circle-p83 .meter-circle-fill,
+.meter-circle-p84 .meter-circle-bar:after,
+.meter-circle-p84 .meter-circle-fill,
+.meter-circle-p85 .bar:after,
+.meter-circle-p85 .meter-circle-fill,
+.meter-circle-p86 .meter-circle-bar:after,
+.meter-circle-p86 .meter-circle-fill,
+.meter-circle-p87 .meter-circle-bar:after,
+.meter-circle-p87 .meter-circle-fill,
+.meter-circle-p88 .meter-circle-bar:after,
+.meter-circle-p88 .meter-circle-fill,
+.meter-circle-p89 .meter-circle-bar:after,
+.meter-circle-p89 .meter-circle-fill,
+.meter-circle-p90 .meter-circle-bar:after,
+.meter-circle-p90 .meter-circle-fill,
+.meter-circle-p91 .meter-circle-bar:after,
+.meter-circle-p91 .meter-circle-fill,
+.meter-circle-p92 .meter-circle-bar:after,
+.meter-circle-p92 .meter-circle-fill,
+.meter-circle-p93 .meter-circle-bar:after,
+.meter-circle-p93 .meter-circle-fill,
+.meter-circle-p94 .meter-circle-bar:after,
+.meter-circle-p94 .meter-circle-fill,
+.meter-circle-p95 .meter-circle-bar:after,
+.meter-circle-p95 .meter-circle-fill,
+.meter-circle-p96 .meter-circle-bar:after,
+.meter-circle-p96 .meter-circle-fill,
+.meter-circle-p97 .meter-circle-bar:after,
+.meter-circle-p97 .meter-circle-fill,
+.meter-circle-p98 .meter-circle-bar:after,
+.meter-circle-p98 .meter-circle-fill,
+.meter-circle-p99 .meter-circle-bar:after,
+.meter-circle-p99 .meter-circle-fill,
+.meter-circle-p100 .meter-circle-bar:after,
+.meter-circle-p100 .meter-circle-fill {
+  transform: rotate(180deg);
+}
+.meter-circle {
+  position: relative;
+  float: left;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.1em 0.1em 0;
+  border-radius: 50%;
+  background-color: $grey-very-light;
+  font-size: 69px;
+}
+.meter-circle *,
+.meter-circle *:before,
+.meter-circle *:after {
+  box-sizing: content-box;
+}
+.meter-circle > span {
+  position: absolute;
+  z-index: 1;
+  top: -25px;
+  left: -24px;
+  display: block;
+  width: 5em;
+  color: $black;
+  font-size: 23px;
+  line-height: 5em;
+  text-align: center;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  white-space: nowrap;
+}
+.meter-circle:after {
+  content: " ";
+  position: absolute;
+  top: 0.08em;
+  left: 0.08em;
+  display: block;
+  width: 0.84em;
+  height: 0.84em;
+  border-radius: 50%;
+  background-color: $white;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-timing-function: ease-in;
+}
+.meter-circle-slice {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  clip: rect(0em, 1em, 1em, 0.5em);
+}
+.meter-circle-p1 .meter-circle-bar {
+  transform: rotate(3.6deg);
+}
+.meter-circle-p2 .meter-circle-bar {
+  transform: rotate(7.2deg);
+}
+.meter-circle-p3 .meter-circle-bar {
+  transform: rotate(10.8deg);
+}
+.meter-circle-p4 .meter-circle-bar {
+  transform: rotate(14.4deg);
+}
+.meter-circle-p5 .meter-circle-bar {
+  transform: rotate(18deg);
+}
+.meter-circle-p6 .meter-circle-bar {
+  transform: rotate(21.6deg);
+}
+.meter-circle-p7 .meter-circle-bar {
+  transform: rotate(25.2deg);
+}
+.meter-circle-p8 .meter-circle-bar {
+  transform: rotate(28.8deg);
+}
+.meter-circle-p9 .meter-circle-bar {
+  transform: rotate(32.4deg);
+}
+.meter-circle-p10 .meter-circle-bar {
+  transform: rotate(36deg);
+}
+.meter-circle-p11 .meter-circle-bar {
+  transform: rotate(39.6deg);
+}
+.meter-circle-p12 .meter-circle-bar {
+  transform: rotate(43.2deg);
+}
+.meter-circle-p13 .meter-circle-bar {
+  transform: rotate(46.8deg);
+}
+.meter-circle-p14 .meter-circle-bar {
+  transform: rotate(50.4deg);
+}
+.meter-circle-p15 .meter-circle-bar {
+  transform: rotate(54deg);
+}
+.meter-circle-p16 .meter-circle-bar {
+  transform: rotate(57.6deg);
+}
+.meter-circle-p17 .meter-circle-bar {
+  transform: rotate(61.2deg);
+}
+.meter-circle-p18 .meter-circle-bar {
+  transform: rotate(64.8deg);
+}
+.meter-circle-p19 .meter-circle-bar {
+  transform: rotate(68.4deg);
+}
+.meter-circle-p20 .meter-circle-bar {
+  transform: rotate(72deg);
+}
+.meter-circle-p21 .meter-circle-bar {
+  transform: rotate(75.6deg);
+}
+.meter-circle-p22 .meter-circle-bar {
+  transform: rotate(79.2deg);
+}
+.meter-circle-p23 .meter-circle-bar {
+  transform: rotate(82.8deg);
+}
+.meter-circle-p24 .meter-circle-bar {
+  transform: rotate(86.4deg);
+}
+.meter-circle-p25 .meter-circle-bar {
+  transform: rotate(90deg);
+}
+.meter-circle-p26 .meter-circle-bar {
+  transform: rotate(93.6deg);
+}
+.meter-circle-p27 .meter-circle-bar {
+  transform: rotate(97.2deg);
+}
+.meter-circle-p28 .meter-circle-bar {
+  transform: rotate(100.8deg);
+}
+.meter-circle-p29 .meter-circle-bar {
+  transform: rotate(104.4deg);
+}
+.meter-circle-p30 .meter-circle-bar {
+  transform: rotate(108deg);
+}
+.meter-circle-p31 .meter-circle-bar {
+  transform: rotate(111.6deg);
+}
+.meter-circle-p32 .meter-circle-bar {
+  transform: rotate(115.2deg);
+}
+.meter-circle-p33 .meter-circle-bar {
+  transform: rotate(118.8deg);
+}
+.meter-circle-p34 .meter-circle-bar {
+  transform: rotate(122.4deg);
+}
+.meter-circle-p35 .meter-circle-bar {
+  transform: rotate(126deg);
+}
+.meter-circle-p36 .meter-circle-bar {
+  transform: rotate(129.6deg);
+}
+.meter-circle-p37 .meter-circle-bar {
+  transform: rotate(133.2deg);
+}
+.meter-circle-p38 .meter-circle-bar {
+  transform: rotate(136.8deg);
+}
+.meter-circle-p39 .meter-circle-bar {
+  transform: rotate(140.4deg);
+}
+.meter-circle-p40 .meter-circle-bar {
+  transform: rotate(144deg);
+}
+.meter-circle-p41 .meter-circle-bar {
+  transform: rotate(147.6deg);
+}
+.meter-circle-p42 .meter-circle-bar {
+  transform: rotate(151.2deg);
+}
+.meter-circle-p43 .meter-circle-bar {
+  transform: rotate(154.8deg);
+}
+.meter-circle-p44 .meter-circle-bar {
+  transform: rotate(158.4deg);
+}
+.meter-circle-p45 .meter-circle-bar {
+  transform: rotate(162deg);
+}
+.meter-circle-p46 .meter-circle-bar {
+  transform: rotate(165.6deg);
+}
+.meter-circle-p47 .meter-circle-bar {
+  transform: rotate(169.2deg);
+}
+.meter-circle-p48 .meter-circle-bar {
+  transform: rotate(172.8deg);
+}
+.meter-circle-p49 .meter-circle-bar {
+  transform: rotate(176.4deg);
+}
+.meter-circle-p50 .meter-circle-bar {
+  transform: rotate(180deg);
+}
+.meter-circle-p51 .meter-circle-bar {
+  transform: rotate(183.6deg);
+}
+.meter-circle-p52 .meter-circle-bar {
+  transform: rotate(187.2deg);
+}
+.meter-circle-p53 .meter-circle-bar {
+  transform: rotate(190.8deg);
+}
+.meter-circle-p54 .meter-circle-bar {
+  transform: rotate(194.4deg);
+}
+.meter-circle-p55 .meter-circle-bar {
+  transform: rotate(198deg);
+}
+.meter-circle-p56 .meter-circle-bar {
+  transform: rotate(201.6deg);
+}
+.meter-circle-p57 .meter-circle-bar {
+  transform: rotate(205.2deg);
+}
+.meter-circle-p58 .meter-circle-bar {
+  transform: rotate(208.8deg);
+}
+.meter-circle-p59 .meter-circle-bar {
+  transform: rotate(212.4deg);
+}
+.meter-circle-p60 .meter-circle-bar {
+  transform: rotate(216deg);
+}
+.meter-circle-p61 .meter-circle-bar {
+  transform: rotate(219.6deg);
+}
+.meter-circle-p62 .meter-circle-bar {
+  transform: rotate(223.2deg);
+}
+.meter-circle-p63 .meter-circle-bar {
+  transform: rotate(226.8deg);
+}
+.meter-circle-p64 .meter-circle-bar {
+  transform: rotate(230.4deg);
+}
+.meter-circle-p65 .meter-circle-bar {
+  transform: rotate(234deg);
+}
+.meter-circle-p66 .meter-circle-bar {
+  transform: rotate(237.6deg);
+}
+.meter-circle-p67 .meter-circle-bar {
+  transform: rotate(241.2deg);
+}
+.meter-circle-p68 .meter-circle-bar {
+  transform: rotate(244.8deg);
+}
+.meter-circle-p69 .meter-circle-bar {
+  transform: rotate(248.4deg);
+}
+.meter-circle-p70 .meter-circle-bar {
+  transform: rotate(252deg);
+}
+.meter-circle-p71 .meter-circle-bar {
+  transform: rotate(255.6deg);
+}
+.meter-circle-p72 .meter-circle-bar {
+  transform: rotate(259.2deg);
+}
+.meter-circle-p73 .meter-circle-bar {
+  transform: rotate(262.8deg);
+}
+.meter-circle-p74 .meter-circle-bar {
+  transform: rotate(266.4deg);
+}
+.meter-circle-p75 .meter-circle-bar {
+  transform: rotate(270deg);
+}
+.meter-circle-p76 .meter-circle-bar {
+  transform: rotate(273.6deg);
+}
+.meter-circle-p77 .meter-circle-bar {
+  transform: rotate(277.2deg);
+}
+.meter-circle-p78 .meter-circle-bar {
+  transform: rotate(280.8deg);
+}
+.meter-circle-p79 .meter-circle-bar {
+  transform: rotate(284.4deg);
+}
+.meter-circle-p80 .meter-circle-bar {
+  transform: rotate(288deg);
+}
+.meter-circle-p81 .meter-circle-bar {
+  transform: rotate(291.6deg);
+}
+.meter-circle-p82 .meter-circle-bar {
+  transform: rotate(295.2deg);
+}
+.meter-circle-p83 .meter-circle-bar {
+  transform: rotate(298.8deg);
+}
+.meter-circle-p84 .meter-circle-bar {
+  transform: rotate(302.4deg);
+}
+.meter-circle-p85 .meter-circle-bar {
+  transform: rotate(306deg);
+}
+.meter-circle-p86 .meter-circle-bar {
+  transform: rotate(309.6deg);
+}
+.meter-circle-p87 .meter-circle-bar {
+  transform: rotate(313.2deg);
+}
+.meter-circle-p88 .meter-circle-bar {
+  transform: rotate(316.8deg);
+}
+.meter-circle-p89 .meter-circle-bar {
+  transform: rotate(320.4deg);
+}
+.meter-circle-p90 .meter-circle-bar {
+  transform: rotate(324deg);
+}
+.meter-circle-p91 .meter-circle-bar {
+  transform: rotate(327.6deg);
+}
+.meter-circle-p92 .meter-circle-bar {
+  transform: rotate(331.2deg);
+}
+.meter-circle-p93 .meter-circle-bar {
+  transform: rotate(334.8deg);
+}
+.meter-circle-p94 .meter-circle-bar {
+  transform: rotate(338.4deg);
+}
+.meter-circle-p95 .meter-circle-bar {
+  transform: rotate(342deg);
+}
+.meter-circle-p96 .meter-circle-bar {
+  transform: rotate(345.6deg);
+}
+.meter-circle-p97 .meter-circle-bar {
+  transform: rotate(349.2deg);
+}
+.meter-circle-p98 .meter-circle-bar {
+  transform: rotate(352.8deg);
+}
+.meter-circle-p99 .meter-circle-bar {
+  transform: rotate(356.4deg);
+}
+.meter-circle-p100 .meter-circle-bar {
+  transform: rotate(360deg);
+}
+/*
+Spinner
+
+The loading spinner can be used standalone or with a `.spinner-backdrop`
+wrapper, which adds a semi-transparent white backdrop.
+
+.spinner-small - A small spinner variant.
+.spinner-mini - A mini spinner variant.
+
+Styleguide 8.9
+*/
+.spinner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  animation: spin-clockwise 1.5s linear 0s infinite;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 55px;
+}
+.spinner-small {
+  font-size: 28px;
+}
+.spinner-mini {
+  font-size: 20px;
+}
+.no-cssanimations .spinner:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("/static/img/spinner-empty-point.gif");
+}
+.no-cssanimations .spinner-small:after {
+  background-image: url("/static/img/btn-spinner-empty-point.gif");
+}
+.no-cssanimations .spinner-mini:after {
+  background-image: url("/static/img/btn-spinner-mini-empty-point.gif");
+}
+.spinner-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQIHWP4vx8AAsABvxAEKVEAAAAASUVORK5CYII=");
+  background: rgba(255,255,255,0.75);
+}
+.spinner-backdrop-fixed {
+  position: fixed;
+}
+/*
+Zoom
+
+Styleguide 8.10
+*/
+.zoom {
+  padding: 3px;
+  border: 0;
+  background: transparent;
+  color: #ccc;
+  font-size: 20px;
+}
+.zoom:before {
+  border-radius: 50%;
+  background: $white;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.7);
+}
+.zoom:hover,
+.zoom:focus {
+  color: #ccc;
+  outline: none;
+}
+.zoom:active {
+  color: #ccc;
+}
+.breadcrumb.active {
+  font-weight: 600;
+}
+/*
+Play Button
+
+Styleguide 8.11
+*/
+.play-button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: $grey-very-light;
+  background: rgba(0,0,0,0.15);
+  color: $white;
+  font-size: 32px;
+  text-align: center;
+}
+.play-button:hover,
+.play-button:focus {
+  background: $grey-light;
+  background: rgba(0,0,0,0.3);
+  outline: none;
+}
+/*
+Error text
+
+Styleguide 8.12
+*/
+.error-text {
+  color: $red;
+}
+/*
+Wells
+
+.well-padded - A variant with padding.
+.well-filled - A variant with a solid background color.
+.well-below  - A variant with a dropdown-like caret on top.
+
+Styleguide 8.13
+*/
+.well {
+  margin: 20px 0;
+  border: 2px solid $blue-pale;
+  border-radius: 10px;
+}
+.well.well-padded {
+  padding: 20px;
+}
+.well.well-filled {
+  border-color: $blue-light;
+  background-color: $blue-light;
+  border-radius: 0;
+}
+/* ==========================================================================
+   Global modules
+   ========================================================================== */
+.tempo-module-header {
+  margin: 0 40px 20px 0;
+  padding: 25px 0 0 10px;
+}
+.tempo-module-header .btn {
+  display: inline-block;
+  margin: 0 0 0 15px;
+  vertical-align: middle;
+}
+.tempo-module-header img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.tempo-module-header a {
+  color: $white;
+}
+.tempo-module-heading {
+  display: inline-block;
+  margin: -5px 0 0;
+  vertical-align: middle;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1;
+}
+.global-email-signup-modal {
+  padding: 0 30px 15px;
+  margin: 0 auto;
+  min-width: 280px;
+  top: 80px;
+}
+@media (min-width: $breakpoint-m) {
+  .global-email-signup-modal {
+    margin-left: -344px;
+    width: 712px;
+    top: 110px;
+  }
+}
+.global-email-signup-modal .email-id {
+  font-weight: 600;
+  word-wrap: break-word;
+}
+.env-info {
+  color: $white;
+  height: 0;
+  display: none;
+}
+@media (min-width: 1120px) {
+  .env-info {
+    display: block;
+  }
+}
+.checkmark-rounded-green:before {
+  position: relative;
+  border-radius: 50%;
+  margin-right: 5px;
+  padding: 7px;
+  background: $green;
+  color: $white;
+}
+/*
+Media Object
+
+Styleguide 8.14
+*/
+.media,
+.media-body {
+  overflow: hidden;
+  *overflow: visible;
+  zoom: 1;
+}
+.media-object {
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+.media-heading {
+  margin: 0;
+  font-weight: 600;
+}
+/*
+Separator
+
+Common horizontal rules for separating content blocks.
+
+`.separator-alt` is a darker variant for use on blue backgrounds.
+
+Styleguide 8.15
+*/
+.separator {
+  border-color: $grey-very-light;
+}
+.separator-heavy {
+  border-color: $grey-very-light;
+  border-width: 3px;
+}
+.separator-alt {
+  border-color: $grey-light;
+}
+.separator-dotted {
+  border: 0;
+}
+/*
+Tables
+
+Control the width of each column with the `<colgroup>` and `<col>` elements.
+To make a column take up only as much room as it needs, add the
+`.table-size-fit` class to the corresponding `<col>` element.
+To make a column take up all the remaining space, use `.table-size-fill`.
+
+.table-striped-odd - alternate the background color of each row starting with the first row.
+.table-striped-even - alternate the background color of each row starting with the second row.
+.table-striped-light-odd - a variant for lighter colored stripes starting with the first row.
+.table-striped-light-even - a variant for lighter colored stripes starting with the second row.
+
+Styleguide 8.16
+*/
+.table {
+  margin: 20px 0 0 0;
+  min-width: 100%;
+  padding: 0;
+  border-bottom: 2px solid $blue-light;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: $grey-dark;
+  font-size: 14px;
+}
+.table td {
+  padding: 7px 15px;
+}
+.table td:first-child {
+  padding-left: 30px;
+  white-space: nowrap;
+}
+.table td:last-child {
+  padding-right: 30px;
+}
+.table tr:last-child td {
+  padding-bottom: 9px;
+}
+.table-size-fit {
+  width: 1%;
+}
+.table-size-fill {
+  width: 100%;
+}
+.table-striped-even tr:nth-child(even) td {
+  background-color: #ccc;
+}
+.table-striped-odd tr:nth-child(odd) td {
+  background-color: #ccc;
+}
+.table-striped-light-even tr:nth-child(even) td {
+  background-color: $blue-light;
+}
+.table-striped-light-odd tr:nth-child(odd) td {
+  background-color: $blue-light;
+}
+.table-first-col-font-alt td:first-child,
+.table-font-alt-cell {
+  color: $grey-medium;
+  font-weight: 400;
+}
+/*
+Tables with column headers
+
+Styleguide 8.16.1
+*/
+.table-header {
+  border-top: 2px solid $blue-pale;
+}
+.table-header td {
+  padding: 7px 10px;
+}
+.table-header td:first-child {
+  padding-left: 20px;
+}
+.table-header td:last-child {
+  padding-right: 20px;
+}
+.table-header th,
+.table-header-cell {
+  padding: 6px 10px;
+  color: $black;
+  font-weight: 600;
+  font-size: 16px;
+}
+.table-header th:first-child {
+  padding-left: 20px;
+}
+.table-header th:last-child {
+  padding-right: 20px;
+}
+/*
+Tables with column and row headers
+
+Styleguide 8.16.2
+*/
+.table-header-alt {
+  border-collapse: separate;
+}
+.table-header-alt th,
+.table-header-alt-cell {
+  padding: 7px 20px;
+  border-top: 2px solid $white;
+  border-right: 2px solid $white;
+  background-color: $blue-pale;
+  font-weight: 700;
+  text-align: center;
+}
+/*
+Carets
+
+Add a caret next to any element by adding the `.caret` class. The caret
+should automatically be centered vertically.
+
+By default, add the `.active` class to view the rotated caret.
+
+.active - rotated caret
+.caret-hover - rotate caret on hover
+.caret-yellow - yellow caret
+.caret-blue - blue caret
+.caret-top - position caret at the top
+
+Styleguide 8.17
+*/
+.caret {
+  position: relative;
+  cursor: pointer;
+}
+.caret:after {
+  margin-left: 3px;
+  width: 1em;
+  height: 1em;
+  font-size: remify(12px);
+  transition: 0.3s ease transform;
+  transform-origin: center 70%;
+}
+.caret.active:after {
+  transform: rotate(-180deg);
+}
+.caret-hover:hover:after {
+  transform: rotate(-180deg);
+}
+.caret-yellow:after {
+  color: $yellow;
+}
+.caret-blue:after {
+  color: $blue;
+}
+.caret-top:after {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+}
+@-moz-keyframes flyout-slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes flyout-slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes flyout-slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flyout-slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes flyout-slide-top {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes flyout-slide-top {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes flyout-slide-top {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flyout-slide-top {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes flyout-slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes flyout-slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes flyout-slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flyout-slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes flyout-slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes flyout-slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes flyout-slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flyout-slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

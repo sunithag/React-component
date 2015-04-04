@@ -1,0 +1,78 @@
+.global-eyebrow-nav-wrapper .header-flyout-modal a {
+  color: $blue;
+  font-weight: 400;
+}
+.global-eyebrow-nav-wrapper .header-flyout-modal a:hover {
+  color: $blue-hover;
+}
+.global-eyebrow-nav {
+  height: 100%;
+breakpoint($breakpoint-l)
+}
+.nav-customer {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+breakpoint($breakpoint-l)
+}
+.wf-loading .nav-customer {
+  opacity: 0;
+}
+.nav-customer .nav-customer-list-link:after {
+  display: none;
+breakpoint($breakpoint-l)
+}
+.nav-customer .wmicon {
+  width: 1em;
+  margin-right: 5px;
+  font-size: 14px;
+  line-height: 15px;
+  vertical-align: text-bottom;
+}
+.nav-customer .wmicon-pin {
+  width: 0.785714285714286em;
+}
+.nav-customer-list {
+  margin: 0;
+  padding: 0;
+}
+.nav-customer-list > li {
+  position: relative;
+  display: block;
+  margin: 0;
+breakpoint($breakpoint-l)
+}
+.nav-customer-list > li .flyout {
+  width: 100%;
+breakpoint($breakpoint-l)
+}
+.nav-customer-list > li .flyout .flyout-modal {
+  display: none;
+}
+.nav-customer-list > li.global-eyebrow-nav-storefinder {
+  display: none;
+}
+.nav-customer-list > li .nav-main-entry {
+  padding-left: 0;
+}
+.nav-customer-list .eyebrownav-registry {
+  margin-top: 6px;
+}
+.nav-customer-list .eyebrownav-registry:first-child {
+  margin-top: 0;
+}
+.nav-customer-list .eyebrownav-registry-links {
+  margin: 0;
+}
+.nav-customer-list .eyebrownav-registry-links a {
+  color: $grey-medium;
+  font-size: 13px;
+  font-weight: 600;
+}
+.nav-customer-list .eyebrownav-registry-links a:hover {
+  color: $grey-dark;
+}
+.header-lists-flyout-modal {
+  width: 276px;
+}

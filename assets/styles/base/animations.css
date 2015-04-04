@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Global Animations
+   ========================================================================== */
+@-moz-keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes zoom-inverse {
+  from {
+    opacity: 0;
+    transform: scale(3);
+  }
+  33% {
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes zoom-inverse {
+  from {
+    opacity: 0;
+    transform: scale(3);
+  }
+  33% {
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@-o-keyframes zoom-inverse {
+  from {
+    opacity: 0;
+    transform: scale(3);
+  }
+  33% {
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes zoom-inverse {
+  from {
+    opacity: 0;
+    transform: scale(3);
+  }
+  33% {
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@-moz-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-o-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

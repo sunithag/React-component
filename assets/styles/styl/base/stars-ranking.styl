@@ -1,0 +1,77 @@
+/*!
+Stars
+
+.stars-small - Small star variant.
+.stars-large - Large star variant.
+
+Styleguide 10.3
+*/
+
+.stars {
+  color: $grey-light;
+  // Remove default space between inline-block elements.
+  font-size: 0;
+  line-height: 1;
+}
+
+.star {
+  display: inline-block;
+  width: 18px;
+  height: @width;
+  margin-left: 3px;
+
+  background-repeat: no-repeat;
+  font-style: normal;
+  vertical-align: middle;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.stars-reviews {
+  margin-left: 18px;
+
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.stars-and-up {
+  margin-left: 5px;
+
+  font-size: 12px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.stars-small {
+  .star {
+    width: 10px;
+    height: @width;
+    margin-left: 2px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .stars-reviews {
+    margin-left: 4px;
+
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+.stars-large {
+  .star {
+    width: 28px;
+    height: @width;
+    margin-left: 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+.module-sponsored-products {
+  padding: 0;
+
+  .sponsored-products-header {
+    margin: 0;
+    padding: 0 40px 20px;
+
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1;
+  }
+}
+
+.has-featured-image {
+  .featured-image {
+    float: left;
+    width: 300px;
+    margin-left: 10px;
+    padding-top: 15px;
+  }
+
+  .carousel-sponsored-products {
+    overflow: hidden;
+  }
+
+  .tile-list .tile {
+    margin: 0 0 0 5px;
+  }
+
+  .tile .product-image {
+    height: 130px;
+    width: 130px;
+  }
+
+  .tile .tile-heading {
+    max-height: 33px;
+  }
+}
+
+small-sponsored-products-theme() {
+  background: transparent;
+
+  .sponsored-products-header {
+    height: 40px;
+    margin-top: 0;
+    padding: 7px 0 0 15px;
+  }
+
+  .carousel-sponsored-products {
+    height: 250px;
+    width: 800px;
+    padding-top: 50px;
+  }
+
+  .paginator-btn {
+    opacity: 1;
+  }
+
+  .tile {
+    width: 276px;
+    padding: 0 45px;
+    border: 0;
+    margin: 0;
+    
+    &:after {
+      background: none;
+    }
+
+    .product-image {
+      float: left;
+      height: 60px;
+      width: 60px;
+      margin: 0px 10px 0 0;
+    }
+
+    .price-display {
+      float: left;
+      width: 97px;
+      margin: 5px 0;
+      padding: 0;
+
+      font-size: 23px;
+    }
+
+    .tile-heading {
+      float: left;
+      width: 88px;
+      height: auto;
+      max-height: 48px;
+      margin: 0;
+      overflow: hidden;
+
+      color: $grey-dark;
+      font-size: 14px;
+
+      &:before {
+        width: 0px;
+        height: 0px;
+      }
+    }
+
+    .stars {
+      float: left;
+      margin: 10px 0 0 70px;
+      padding: 0;
+      clear: both;
+    }
+  }
+
+  @media (min-width: 1366px) {
+    .carousel-sponsored-products {
+      width: 1024px;
+    }
+
+    .tile {
+      width: 350px;
+      padding: 0 55px;
+
+      .price-display, .tile-heading {
+        width: 140px;
+      }
+    }
+  }
+}
+
+.small-sponsored-products {
+  small-sponsored-products-theme();
+}
+
+.custom-sponsored-products .sponsored-products-header {
+  margin: 20px 0 10px 10px;
+  padding: 20px 0 0 0;
+
+  font-size: 25px;
+  font-weight: 700;
+}

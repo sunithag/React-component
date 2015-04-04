@@ -1,0 +1,101 @@
+.global-footer-module {
+  +breakpoint($breakpoint-l) {
+    margin-bottom: 30px;
+  }
+}
+
+.global-footer-module .footer-links-column {
+  font-size: 14px;
+  line-height: 1;
+
+  +breakpoint($breakpoint-xl) {
+    font-size: 16px;
+  }
+
+  &:first-child {
+    margin-left: 0px;
+  }
+}
+
+.global-footer-module .footer-links-column h3 {
+  margin-top: 15px;
+
+  font-size: 14px;
+
+  +breakpoint($breakpoint-xl) {
+    font-size: 16px;
+  }
+}
+
+$tenant-global-footer-module-h3();
+
+.global-footer-module .footer-links-column .block-list {
+  margin: 0;
+  text-align: center;
+
+  +breakpoint($breakpoint-l) {
+    text-align: left;
+  }
+
+  > li {
+    display: inline-block;
+    margin: 0 10px;
+
+    line-height: 35px;
+
+    +breakpoint($breakpoint-m) {
+      line-height: 55px;
+    }
+
+    +breakpoint($breakpoint-l) {
+      display: block;
+      margin: 15px 0 0;
+
+      line-height: 1;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .expand,
+  .collapse {
+    width: 18px;
+    margin-right: 2px;
+    padding: 0px;
+    border: none;
+
+    background: none;
+    color: $blue;
+    cursor: pointer;
+    line-height: 1;
+
+    &:hover,
+    &:focus {
+      color: $blue-secondary;
+    }
+  }
+
+  .expand {
+    &:before {
+      content: "[+]";
+    }
+  }
+
+  .collapse {
+    &:before {
+      content: "[–]";
+    }
+  }
+
+  .sub-list {
+    display: none;
+
+    > li {
+      margin-left: 23px;
+    }
+  }
+}
+
+$tenant-global-footer-module-block-list();

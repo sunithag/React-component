@@ -1,0 +1,416 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.head {
+  clearfix();
+}
+
+.header {
+  wmzindex("header");
+
+  position: relative;
+
+  height: 139px;
+}
+
+.header-wrapper {
+  height: 139px;
+}
+
+$tenant-header();
+
+.header-primary {
+  clearfix();
+}
+
+$tenant-header-primary();
+
+$tenant-header-searchbar-wrapper();
+
+$tenant-header-account-cart-wrapper();
+
+// Specificity hack to override `.header-primary a` styles.
+.header-account-signin.header-account-signin {
+  font-weight: 400;
+
+  button, a {
+    // have to use both for iOS and some androids
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+$tenant-header-account-signin();
+
+
+.header-padded-cell {
+  padding-right: 36px;
+}
+
+$tenant-header-padded-cell();
+
+.header-padded-cell-last {
+  padding-right: 0 !important;
+}
+
+.logo { // Not responsive, not part of sticky header
+  position: relative;
+
+  display: block;
+
+  vertical-align: middle;
+
+  img {
+    display: block;
+  }
+}
+
+.logo-small {
+  display: none;
+}
+
+$tenant-logo();
+
+.header-meta {
+  font-size: 12px;
+}
+
+.header-meta-cell {
+  padding: 0 15px;
+  border-left: 1px solid;
+
+  &:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+$tenant-header-meta-cell();
+
+// IE8: Replacement for `:last-child`. Replace with pseudo-selector when IE8 is
+// dropped.
+.header-meta-cell-last {
+  padding-right: 0;
+}
+
+.header-login {
+  margin-top: 4px;
+  min-width: 100px;
+  max-width: 260px;
+
+  text-align: right;
+
+  p {
+    margin: 0;
+  }
+
+  .dropdown-link {
+    font-size: 13px;
+
+  }
+}
+
+$tenant-header-login();
+
+.header-account-name {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+
+  span {
+    ellipsis();
+
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .account-display-name {
+    display: inline;
+  }
+}
+
+$tenant-header-account-name();
+
+// only present on Walmart at mobile viewport
+.header-storefinder {
+  display: none;
+}
+
+$tenant-header-storefinder();
+
+.header-cart {
+  position: relative;
+
+  font-size: 20px;
+
+  a {
+    display: block;
+    margin-right: 5px;
+
+    text-align: center;
+
+    &:hover {
+      .header-cart-item-count {
+        background: #eec334;
+
+        &:hover {
+          background: $yellow-hover;
+        }
+      }
+    }
+  }
+}
+
+.header-cart-item-count {
+  position: absolute;
+  top: -4px;
+  right: 0;
+
+  display: block;
+  width: 20px;
+  height: @width;
+  border-radius: 1em;
+
+  background: $yellow;
+  color: $grey-dark;
+  font-size: 12px;
+  line-height: @height;
+  text-align: center;
+}
+
+.header-cart-item-count-99-plus {
+  line-height: 19px;
+  font-size: 10px;
+}
+
+$tenant-header-cart();
+
+.nav-main {
+  clearfix();
+  font-smoothing();
+
+  background: $white;
+  font-weight: 600;
+}
+
+// only present on Walmart at mobile viewport
+.nav-main-top, .nav-main-account, .nav-main-signout {
+  display: none;
+}
+
+$tenant-nav-main();
+
+$tenant-nav-main-list();
+
+$tenant-nav-main-list-item();
+
+.nav-main-item {
+  display: block;
+
+&:hover,
+&:focus {
+  color: $blue-hover;
+  outline: none;
+}
+}
+
+$tenant-nav-main-item();
+
+$tenant-nav-main-item-wrapper();
+
+$tenant-nav-dropdown-panel();
+
+.header-nav-toggle-wrapper {
+  display: none;
+}
+
+.header-nav-toggle {
+  height: 0;
+  width: 0;
+
+  color: $white;
+  font-size: 20px;
+  opacity: 0;
+
+&:hover,
+&:focus {
+  color: $blue-hover;
+  outline: none;
+}
+}
+
+$tenant-header-nav-toggle();
+
+// only present on Walmart at mobile viewport
+.header-search-toggle-wrapper {
+  display: none;
+}
+
+$tenant-header-search-toggle();
+
+$tenant-promo-banner();
+
+$tenant-promo-banner-highlight();
+
+/* ==========================================================================
+   Flyouts
+   ========================================================================== */
+
+.header-flyout-modal {
+  wmzindex("header-flyout");
+
+  font-size: 14px;
+  text-align: left;
+}
+
+$tenant-header-flyout-modal();
+
+.header-flyout-heading {
+  margin-top: 18px;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.header-flyout-list {
+  margin-top: 0;
+  padding: 0;
+
+  list-style: none;
+
+  li {
+    margin-top: 6px;
+  }
+
+  span {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.header-flyout-list-expanded {
+  li {
+    margin-top: 20px;
+  }
+}
+
+.header-flyout-list-mini {
+  clearfix();
+
+  margin-top: 6px;
+
+  font-size: 12px;
+
+  li {
+    float: left;
+    margin: 0 0 0 18px;
+    padding: 0 0 0 18px;
+    border-left: 1px solid $blue;
+
+    line-height: 1;
+
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
+.header-flyout-instructional {
+  display: block;
+  margin-top: -2px;
+  width: 160px;
+
+  color: $grey-medium;
+  line-height: 1.4;
+  font-size: 12px;
+  white-space: normal;
+}
+
+.header-flyout-form {
+  width: 240px;
+  margin-top: 4px;
+
+  .btn {
+    padding: 0 20px;
+  }
+}
+
+/* ==========================================================================
+   Sticky Header
+   ========================================================================== */
+
+@keyframes header-slide-down {
+  0% {
+    transform: translateY(-50px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes header-slide-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes header-wrapper-shrink {
+  0% {
+    height: 139px;
+  }
+
+  100% {
+    height: 50px;
+  }
+}
+
+.header.fixed {
+  wmzindex("header-fixed");
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  $tenant-header-sticky();
+}
+
+$tenant-header-fixed();
+
+$tenant-header-homepage-fixed();
+
+$tenant-header-fixed-close();
+
+.header.fixed.keyboard-hidden {
+  visibility: hidden;
+}
+
+.header.fixed.has-touchKeyboard {
+  position: absolute;
+}
+
+/* ==========================================================================
+   Debug Info
+   ========================================================================== */
+
+.debug-info {
+  debug-info();
+}

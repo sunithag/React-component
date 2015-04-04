@@ -1,0 +1,657 @@
+/*!
+Mixins
+
+Styleguide 15
+*/
+
+/*!
+wmzindex()
+
+We name every `z-index` and use them with the `wmzindex()` mixin. This lets
+us keep track of all z-indices used so that there is no guesswork about
+order. For more information, see http://css-tricks.com/handling-z-index/
+
+To add a `z-index`, refer to the `$wmzindex` list in `variables.styl` and
+create a new z-index with the desired stacking order.
+
+Most z-indices are named for their component. There are also several utility
+indices which cover common use cases:
+
+- `"negative"`: Sets `z-index: -1` to place content behind the normal flow.
+- `"none"`: Resets `z-index` to `0`.
+- `"basic"`: Sets `z-index: 1` to place content in front of the normal flow.
+- `"basic-increment"`: Sets `z-index: 2` to place content in front of
+ elements with a `"basic"` `z-index`.
+
+To use, call `wmzindex()` with a name. `wmzindex("basic")` will return
+`z-index: 1;`.
+
+Styleguide 15.1
+*/
+
+wmzindex($component) {
+  z-index: $wmzindex[$component];
+}
+
+/*!
+font-smoothing()
+
+The `font-smoothing()` mixin applies `-webkit-font-smoothing` and
+`-moz-osx-font-smoothing` to adjust font smoothing behavior on OS X browsers
+(Chrome, Safari, Opera, and Firefox). Best used on icon fonts and large text.
+
+The mixin applies `-webkit-font-smoothing: antialiased` and
+`-moz-osx-font-smoothing: grayscale` by default. You can pass in `"off"` as
+a parameter to set these values back to their browser defaults, or
+`"inherit"` to set them to `inherit`.
+
+Styleguide 15.2
+*/
+
+font-smoothing($value = "on") {
+  if ($value is "off") {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+  } else if ($value is "inherit") {
+    -moz-osx-font-smoothing: inherit;
+    -webkit-font-smoothing: inherit;
+  } else {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ==========================================================================
+   Polyfills
+   ========================================================================== */
+
+boxsizing() {
+  box-sizing: border-box;
+}
+
+/*!
+css3pie()
+
+The `css3pie()` mixin adds basic CSS3 support for IE7+. Do not use this on
+`*` as it has a substantial performance impact. It should only be used on
+a case-by-case basis.
+
+For more details, see http://css3pie.com/
+
+Styleguide 15.3
+*/
+
+css3pie() {
+  behavior: url(/static/misc/PIE.htc);
+}
+
+/*!
+svgBg()
+
+The `svgBg()` mixin sets an SVG background image with a Modernizr fallback.
+*/
+
+svgBg(svgPath, fallbackPath) {
+  background-image: url(svgPath);
+
+  .no-svg & {
+    background-image: url(fallbackPath);
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+/*!
+blinktext()
+
+The `blinktext()` mixin applies a 'blinking' animation indefinitely, most
+commonly used to the make an ellipsis blink.
+
+Styleguide 15.4
+*/
+
+blinktext() {
+  -webkit-animation: blinker 1s infinite alternate;
+  -moz-animation: blinker 1s infinite alternate;
+  -o-animation: blinker 1s infinite alternate;
+  animation: blinker 1s infinite alternate;
+}
+
+/*!
+clearfix()
+
+The `clearfix()` mixin clears any `float` beahvior, allowing
+the component to stack horizontally neatly.
+
+The `clearfix()` mixin applies `display: table` and `content: ""` on the
+pseudo elements `&:before` and `&:after`, avoiding the collapsed
+height effect of floats. Additionally, it applies `clear: both` to the
+`&:after` pseudo element to allow horizontal stacking.
+
+Styleguide 15.5
+*/
+
+clearfix() {
+ *zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/*!
+ir()
+
+Deprecated: This component is deprecated. Do not use it in old or new
+projects. Pages using it may break at any time.
+
+The mixin `ir()` is used for image replacement. Apply the mixin to
+an element and add a background image, so that there is accessible text,
+but it displays an image for sighted users.
+
+The preferred solution to use instead is to wrap the accessible text in
+a `<span class="visuallyhidden"></span>`.
+
+Styleguide 15.6
+*/
+
+ir() {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px; // IE 6/7 fallback
+
+  &:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 150%;
+  }
+}
+
+/*!
+visuallyhidden()
+
+We use the `visuallyhidden()` mixin when content should be made availble
+to screen readers users, but kept hidden from sighted users.
+
+The `visuallyhidden()` mixin positions content off the visible screen using
+`position: absolute;` to remove the element from the page flow.
+It applies `width: 1px; height: 1px;` to make the
+element a one-pixel square in size and uses `overflow: hidden` to
+visually hide everything that does not fit in these dimensions. A negative
+margin, `margin: -1px;`, and a clip, `clip: rect(0 0 0 0)`, is applied to
+define what portion of an element is visible while avoiding any page
+scrolling.
+
+Styleguide 15.7
+*/
+
+visuallyhidden() {
+  position: absolute !important;
+
+  overflow: hidden !important;
+  display: block !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+}
+
+// Position Utility Helper
+// https://github.com/tj/nib/blob/master/lib/nib/positions.styl
+
+pos($type, $args) {
+  $i = 0;
+  position: unquote($type);
+  for $j in (1..4) {
+    if length($args) > $i {
+      {$args[$i]}: $args[$i + 1] is a 'unit' ? $args[$i += 1] : 0;
+    }
+    $i += 1;
+  }
+}
+
+/*
+ * Position utility.
+ *
+ * Synopsis:
+ *
+ *   fixed: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *     fixed: top left
+ *     fixed: top 5px left
+ *     fixed: top left 5px
+ *     fixed: top 5px left 5px
+ *
+ */
+
+fixed() {
+  pos("fixed", arguments);
+}
+
+/*
+ * Position utility.
+ *
+ * Synopsis:
+ *
+ *   absolute: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *     absolute: top left
+ *     absolute: top 5px left
+ *     absolute: top left 5px
+ *     absolute: top 5px left 5px
+ *
+ */
+
+absolute() {
+  pos("absolute", arguments);
+}
+
+/*
+ * Position utility.
+ *
+ * Synopsis:
+ *
+ *   relative: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *     relative: top left
+ *     relative: top 5px left
+ *     relative: top left 5px
+ *     relative: top 5px left 5px
+ *
+ */
+
+relative() {
+  pos("relative", arguments);
+}
+
+absolute-center() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  margin: auto;
+}
+
+absolute-center-h() {
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  margin: auto;
+}
+
+absolute-center-v() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  margin: auto;
+}
+
+walmarticons() {
+  font-smoothing();
+
+  font-family: WalmartIcons;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+}
+
+/*!
+ellipsis()
+
+The `ellipsis()` mixin truncates a single line of text to an ellipsis (...)
+when it is too long. It applies `white-space: nowrap`, which means
+it will not work on a paragraph of text.
+
+Styleguide 15.8
+*/
+
+ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// Reset z-index stacking context
+stackcontext() {
+  .csstransforms3d & {
+    transform-style: preserve-3d;
+  }
+
+  .csstransforms.no-csstransforms3d & {
+    transform: translateX(0);
+  }
+
+  .nocsstransforms & {
+    opacity: 0.9999;
+  }
+}
+
+/*!
+horizontal-dotted-border()
+
+The `horizontal-dotted-border()` mixin applies a horizontal border.
+The horizontal border has a repeating pattern of 1 gray and 2
+transparent pixels, resulting in a visually aesthetic separator line.
+
+Styleguide 15.9
+*/
+
+horizontal-dotted-border() {
+  content: "";
+
+  display: block;
+  height: 1px;
+
+  background: url("/static/img/dotted-border.png") repeat;
+}
+
+wmicon($icon) {
+  content: $wmicons[$icon];
+}
+
+/*!
+img-hide-alt()
+
+The `img-hide-alt()` mixin is for hiding the alt-text in
+certain browsers (i.e. Firefox) since we have limited space the alt-text
+will go all over the place.
+
+Styleguide 15.10
+*/
+
+img-hide-alt() {
+  display: inline-block;
+  color: transparent;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Debug Info
+   ========================================================================== */
+
+debug-info() {
+  position: absolute;
+
+  margin:-14px 0 0;
+
+  &, a {
+    color: $blue;
+  }
+}
+
+/*!
+remify()
+
+The `remify($values)` mixin takes a `px` value and converts it to `rem`. It also
+adds a `px` fallback for old browsers. All font sizing should use this mixin,
+unless there is a particular use case in which an element should be sized with
+`em` values instead.
+
+`remify()` accepts multiple values, allowing for shorthand declarations. For
+example, the following is valid: `padding: remify(20px 16px)`.
+
+Styleguide 15.11
+*/
+
+remify($values) {
+  $remified = null;
+  $convertedPixels = false;
+
+  for $value in $values {
+    $u = unit($value);
+
+    if ($u is 'px') {
+      $convertedPixels = true;
+      push($remified, unit($value/16, 'rem'));
+    } else {
+      push($remified, $value);
+    }
+  }
+
+  if ($convertedPixels is true) {
+    add-property(current-property[0], $values);
+  }
+
+  return $remified;
+}
+
+/*!
+emify()
+
+The `emify($value)` mixin takes a `px` value and converts it to `em`. `emify()`
+should only be used when adding minor breakpoints, because `rem` values cannot
+be used in breakpoints. In all other cases, use `remify()` instead.
+
+Styleguide 15.12
+*/
+
+emify($value) {
+  $u = unit($value);
+
+  if ($u is 'px') {
+    return unit($value/16, 'em');
+  } else {
+    return unit($value, $u);
+  }
+}
+
+animation() {
+  .visuallyhidden & {
+    animation: none;
+  }
+
+  animation: arguments;
+}
+
+/*!
+absolute-center()
+
+The `absolute-center()` mixin centers an element vertically and horizontally.
+
+To use, the containing element must have a `position` value of `relative`,
+`absolute`, or `fixed` and the element to be centered must have a fixed height
+if you want to center it vertically.
+
+Styleguide 15.13
+*/
+
+absolute-center() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  margin: auto;
+}
+
+/*!
+absolute-center-h()
+
+The `absolute-center()` mixin centers an element horizontally.
+
+To use, the containing element must have a `position` value of `relative`,
+`absolute`, or `fixed`.
+
+Styleguide 15.13.1
+*/
+
+absolute-center-h() {
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  margin: auto;
+}
+
+/*!
+absolute-center-v()
+
+The `absolute-center()` mixin centers an element vertically.
+
+To use, the containing element must have a `position` value of `relative`,
+`absolute`, or `fixed` and the element to be centered must have a fixed height
+if you want to center it vertically.
+
+Styleguide 15.13.2
+*/
+
+absolute-center-v() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  margin: auto;
+}
+
+/* ==========================================================================
+   Common Styles
+   ========================================================================== */
+
+btn() {
+  font-smoothing();
+
+  display: inline-block;
+  height: 38px;
+  padding: 0 34px;
+  border: 0
+  border-radius: 4px;
+
+  background-color: $blue;
+  font-size: 16px;
+  font-weight: 700;
+  // Subtract 2px to account for top and bottom border.
+  line-height: (@height - 2);
+  text-align: center;
+  vertical-align: middle;
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited {
+    color: $white;
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    background: $blue-hover;
+  }
+
+  &:active {
+    background: $blue-active;
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: $blue;
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
+btn-inverse() {
+  border: 1px solid $grey-light;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    background: $white;
+    color: $blue;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $blue-secondary;
+  }
+
+  &:active {
+    border-color: $grey-light;
+  }
+
+  &.disabled,
+  &:disabled {
+    border-color: $grey-light;
+
+    background-color: $white;
+  }
+}
+
+btn-mini() {
+  height: 26px;
+  padding: 0 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+  // Subtract 2px to account for top and bottom border.
+  line-height: (@height - 2);
+}
+
+/*!
+breakpoint()
+
+The `breakpoint()` mixin is used for `min-` and `max-width` media queries.
+It conditionally wraps code in media queries depending on the value of the
+`$isResponsive` variable. This allows us to generate fallback stylesheets that
+apply desktop screen styles without media queries.
+
+`breakpoint()` takes two parameters:
+
+- `$width`: a `px` or `em` width for the media query
+- `$type`: the type of media query, `min` (default) or `max`
+
+Pixel widths are automatically converted to `em` values.
+
+`breakpoint()` is a block mixin. Example usage:
+
+```
++breakpoint($breakpoint-m) {
+  body {
+    background: blue;
+  }
+}
+```
+
+Styleguide 15.14
+*/
+
+breakpoint($width, $type = "min") {
+  $emWidth = emify($width);
+  $emWidthLimit = 1024 / 16;
+  $alwaysDisplay = $emWidth > $emWidthLimit && $type == "min";
+
+  if ($isResponsive == true || $alwaysDisplay) {
+    @media ({$type}-width: $emWidth) {
+      {block}
+    }
+  } else if ($type == "min") {
+    {block}
+  }
+}

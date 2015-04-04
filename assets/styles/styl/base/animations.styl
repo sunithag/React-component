@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Global Animations
+   ========================================================================== */
+
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes zoom-inverse {
+  from {
+    opacity: 0;
+    transform: scale(3);
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+@keyframes from-right {
+  from {
+    transform(translateX(100%));
+  }
+}

@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Global Nav
+   ========================================================================== */
+.nav-main-primary {
+  list-style: none;
+}
+.nav-main-dropdown-toggle {
+  position: relative;
+  width: 228px;
+  margin: 0 0 0 -20px;
+  padding: 0 50px 0 20px;
+  border: none;
+  border-right: 1px solid #efefef;
+breakpoint($breakpoint-l)
+  transition: 0.3s ease background;
+}
+.nav-main-dropdown-toggle:focus {
+  outline: none;
+}
+.nav-main-dropdown-toggle.active:after {
+  transform: rotate(-180deg);
+}
+.nav-main-dropdown-toggle:after {
+  content: none;
+  position: absolute;
+  top: 17px;
+  right: 19px;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-top-color: $yellow;
+  transition: 0.3s ease transform;
+  transform-origin: center 3px;
+breakpoint($breakpoint-l)
+}
+.nav-dropdown-container.active {
+  height: 496px;
+  opacity: 1;
+  transition: 0.3s ease height;
+}
+.nav-dropdown-container.expanded {
+  width: 964px;
+}
+.nav-dropdown-container li {
+  float: none;
+}
+.nav-dropdown {
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+  height: 792px;
+breakpoint($breakpoint-l)
+}
+.nav-dropdown-container.active .nav-dropdown {
+  padding: 5px 0;
+}
+.nav-dropdown li {
+  display: block;
+}
+breakpoint($breakpoint-xl)
+.header-abtest.header .nav-main-primary-homepage .nav-main-dropdown-toggle {
+breakpoint($breakpoint-l)
+  color: $blue-hover;
+  cursor: default;
+  pointer-events: none;
+}
+.header-abtest.header .nav-main-primary-homepage .nav-main-dropdown-toggle:after {
+  transform: rotate(-180deg);
+}
+.header-abtest.header .nav-dropdown-container-homepage {
+  height: 496px;
+  opacity: 1;
+}
+.header-abtest.header .nav-dropdown-homepage {
+  padding: 5px 0;
+}
+.nav-dropdown-item {
+  display: block;
+  width: 228px;
+  height: 32px;
+  margin-left: 0;
+  padding: 0 20px;
+  border: none;
+  background: $blue-light;
+  font-size: 13px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+.nav-dropdown-item:focus {
+  outline: none;
+}
+.nav-flyout-toggle {
+  cursor: default;
+}
+.touch .nav-flyout-toggle {
+  color: $blue;
+}
+.touch .nav-flyout-toggle:hover {
+  background: none;
+  color: $blue;
+  display: inline-block;
+}
+.touch .nav-flyout-toggle.active {
+  background: $white;
+}
+.touch .nav-flyout-link:hover {
+  background: none;
+  color: $blue;
+}
+.nav-flyout {
+  position: relative;
+  left: 0;
+  width: 100%;
+breakpoint($breakpoint-l)
+}
+.nav-flyout ul {
+  margin: 0;
+  padding: 0;
+breakpoint($breakpoint-l)
+}
+.nav-flyout ul:first-child {
+  margin-top: 0;
+}
+.nav-flyout li {
+  display: block;
+}
+.nav-flyout a {
+  display: inline-block;
+  padding: 5px 0;
+  color: $grey-medium;
+  font-size: 13px;
+}
+.nav-flyout-section {
+  padding: 0;
+  width: 100%;
+breakpoint($breakpoint-l)
+}
+.nav-flyout-section a:hover,
+.nav-flyout-section a:focus {
+  color: $grey-dark;
+}
+.nav-flyout-heading a {
+  display: inline-block;
+  color: $blue;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.nav-flyout-heading a:hover {
+  color: $blue-hover;
+}
+.nav-flyout-heading a:hover i {
+  border-left-color: $blue-hover;
+}
+.nav-flyout-heading a:hover:after {
+  border-left-color: $blue-hover;
+}
+.nav-flyout-heading a i {
+  content: "";
+  display: none;
+  border: 4px solid transparent;
+  border-left-color: $blue;
+  vertical-align: middle;
+}
+.corner-ad {
+  position: absolute;
+  right: 30px;
+  display: none;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: right;
+  transition: 0.3s ease all;
+  visibility: hidden;
+}
+.corner-ad a {
+  padding: 0;
+  color: $orange;
+  font-size: 16px;
+  font-weight: 400;
+}
+.corner-ad img {
+  position: relative;
+  max-width: inherit;
+}
+.corner-ad.verticalColumn img {
+  top: 30px;
+  left: 30px;
+}
+.corner-ad.verticalColumn.bleed img {
+  left: 50px;
+}
+.corner-ad.smallRectangle img {
+  top: 34px;
+  left: 30px;
+  width: 246px;
+  height: 126px;
+}
+.corner-ad.smallRectangle.bleed img {
+  left: 50px;
+}
+.corner-ad.horizontalColumn img {
+  top: 34px;
+  left: 30px;
+  width: 416px;
+  height: 126px;
+}
+.corner-ad.horizontalColumn.bleed img {
+  left: 50px;
+}
+.nav-flyout.active .corner-ad {
+  bottom: 30px;
+  transition: 0.3s 0.25s ease-out opacity, 0.3s 0.25s ease-out bottom;
+  visibility: visible;
+}
+/* ==========================================================================
+   TODO: remove when using explicit mixin
+   ========================================================================== */
+
+.nav-flyout .corner-ad {
+  opacity: 0;
+}
+
+.nav-flyout.active .corner-ad {
+  opacity: 1;
+}

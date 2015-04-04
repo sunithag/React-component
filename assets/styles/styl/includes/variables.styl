@@ -1,0 +1,457 @@
+/*!
+Variables
+
+Styleguide 4
+*/
+
+/* ==========================================================================
+   Development Paths
+   ========================================================================== */
+
+$path-core-global = "atlas-core/src/main/java/com/walmart/atlas/global/views";
+
+/* ==========================================================================
+   Font Stacks
+   ========================================================================== */
+
+$helvetica = "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font = myriad-pro, $helvetica;
+$code = Consolas, "Liberation Mono", Courier, monospace;
+
+/*!
+Colors
+
+Styleguide 4.1
+*/
+
+$blue = #007dc6;
+$blue-hover = #3da1e0;
+$blue-active = #0070b2;
+
+$blue-secondary = #79b9e7;
+$blue-secondary-hover = #98cffd;
+$blue-secondary-active = #6da6cf;
+
+$blue-tertiary = #9ed6fa;
+$blue-tertiary-hover = #a8dafb;
+$blue-tertiary-active = #8ec0e1;
+
+$blue-pale = #dfebed;
+$blue-pale-hover = #e2edef;
+$blue-pale-active = #c8d3d5;
+
+$blue-light = #f2f8fd;
+
+$orange = #f47421;
+$orange-hover = #f58238;
+$orange-active = #db681e;
+
+$yellow = #ffc120;
+$yellow-hover = #ffcc46;
+
+$yellow-secondary = #ffd76e;
+
+$green = #76c143;
+
+$red = #f42121;
+
+$white = #fff;
+
+$black = #222;
+
+$grey-dark = #444;
+$grey-medium = #888;
+$grey-light = #d9d9d9;
+$grey-very-light = #e9e9e9;
+
+$grey-cool = #c2cfd6;
+$grey-cool-hover = #c8d4da;
+$grey-cool-active = #aebac0;
+
+/*!
+Responsive Breakpoints
+
+We use five major breakpoints in Atlas. These breakpoints are primarily meant
+for use in `min-width` "mobile-first" media queries:
+
+```
+// Applies to screens wider than or equal to 768px.
+
+.component {
+  @media (min-width: $breakpoint-m) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+In cases where `max-width` "desktop-first" media queries are necessary, use the
+accompanying `-max` variants of the breakpoint media queries:
+
+```
+// Applies to screens more narrow than the "large" breakpoint of 1024px.
+
+.component {
+  @media (max-width: $breakpoint-m-max) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+Each `-max` variable is 1px more narrow than the *next largest* breakpoint, preventing
+overlap between `min-width` and `max-width` media queries.
+
+|                        | Default               | Extra Small           |  Small               | Medium              | Large               | Extra Large         |
+| :---------------       | :--------             | :--                   | :----------          | :----------         | :----------         | :-----------        |
+| **Screen Sizes**       | `< 320px`             | `>= 320px`            | `>= 480px`           | `>= 768px`          | `>= 1024px`         | `>= 1364px`         |
+| **Variable**           | None                  | `$breakpoint-xs`      | `$breakpoint-s`      | `$breakpoint-m`     | `$breakpoint-l`     | `$breakpoint-xl`    |
+| **Max-width Variable** | None                  | `$breakpoint-xxs-max` | `$breakpoint-xs-max` | `$breakpoint-s-max` | `$breakpoint-m-max` | `$breakpoint-l-max` |
+
+Styleguide 4.2
+*/
+
+$breakpoint-xs-px = 320px;
+$breakpoint-s-px = 480px;
+$breakpoint-m-px = 768px;
+$breakpoint-l-px = 1024px;
+$breakpoint-xl-px = 1364px;
+
+$breakpoint-xs = emify($breakpoint-xs-px);
+$breakpoint-s = emify($breakpoint-s-px);
+$breakpoint-m = emify($breakpoint-m-px);
+$breakpoint-l = emify($breakpoint-l-px);
+$breakpoint-xl = emify($breakpoint-xl-px);
+
+$breakpoint-xxs-max = emify($breakpoint-xs-px - 1px);
+$breakpoint-xs-max = emify($breakpoint-s-px - 1px);
+$breakpoint-s-max = emify($breakpoint-m-px - 1px);
+$breakpoint-m-max = emify($breakpoint-l-px - 1px);
+$breakpoint-l-max = emify($breakpoint-xl-px - 1px);
+
+// Responsive breakpoint variable hash. Primarily used for grid and utility
+// generation.
+
+$responsive-breakpoint-sizes = {
+  xs: $breakpoint-xs,
+  s: $breakpoint-s,
+  m: $breakpoint-m,
+  l: $breakpoint-l,
+  xl: $breakpoint-xl
+}
+
+/*!
+Deprecated: Responsive Breakpoints
+
+These variables are deprecated in favor of the new breakpoint set above.
+
+We use four major breakpoints in Atlas. These breakpoints are primarily meant
+for use in `min-width` "mobile-first" media queries:
+
+```
+// Applies to screens wider than or equal to than 768px.
+
+.component {
+  @media (min-width: $screen-m) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+In cases where `max-width` "desktop-first" media queries are necessary, use the
+accompanying `-max` variants of the breakpoint media queries:
+
+```
+// Applies to screens more narrow than the "large" breakpoint of 768px.
+
+.component {
+  @media (max-width: $screen-m-max) {
+    display: inline-block;
+    border-radius: 4px;
+  }
+}
+```
+
+Each `-max` variable is 1px more narrow than the *next largest* breakpoint, preventing
+overlap between `min-width` and `max-width` media queries.
+
+|                        | Default (Small) | Medium          | Large           | Extra Large     | Extra Extra Large |
+| :---------------       | :--------       | :----------     | :----------     | :----------     | :-----------      |
+| **Screen Sizes**       | `< 544px`       | `>= 544px`      | `>= 768px`      | `>= 992px`      | `>= 1366px`       |
+| **Variable**           | None            | `$screen-m`     | `$screen-l`     | `$screen-xl`    | `$screen-xxl`     |
+| **Max-width Variable** | None            | `$screen-s-max` | `$screen-m-max` | `$screen-l-max` | `$screen-xl-max`  |
+
+Styleguide 4.3
+*/
+
+$screen-m-px = 544px;
+$screen-l-px = 768px;
+$screen-xl-px = 992px;
+$screen-xxl-px = 1366px;
+
+$screen-m = emify($screen-m-px);
+$screen-l = emify($screen-l-px);
+$screen-xl = emify($screen-xl-px);
+$screen-xxl = emify($screen-xxl-px);
+
+$screen-s-max = emify($screen-m-px - 1px);
+$screen-m-max = emify($screen-l-px - 1px);
+$screen-l-max = emify($screen-xl-px - 1px);
+$screen-xl-max = emify($screen-xxl-px - 1px);
+
+// Breakpoint variable hash. Primarily used for grid and utility generation.
+$screen-sizes = {
+  "m": $screen-m,
+  "l": $screen-l,
+  "xl": $screen-xl,
+  "xxl": $screen-xxl
+}
+
+// Screen height media query variables
+$screen-height-m = emify(640px);
+$screen-height-l = emify(768px);
+$screen-height-xl = emify(960px);
+$screen-height-xxl = emify(1136px);
+
+/*!
+Spacing
+
+Spacing between and within different elements can be achieved with the
+`-margin` and `-padding` variables. This ensures consistent spacing throughout
+the page, and opens up the process for responsive spacing in the (near)
+future.
+
+Each variable is a non-responsive, fixed unit.
+
+For ease of moving different components around the page using `margin`,
+see [Modules and Margins](#3-modules-and-margins).
+
+```
+// Applies 30px to the top margin and 5px to the left margin, and
+// applies 10px padding on all sides.
+
+.component {
+  margin-top: $m-margin;
+  margin-left: $xxs-margin;
+  padding: $xs-padding;
+}
+```
+
+|                        | Extra Extra Small | Extra Small    | Small          | Medium          | Large        | Extra Large    | Extra Extra Large |
+| :---------------       | :--------         | :----------    | :----------    | :----------     | :----------- | :----------    | :-----------      |
+| **Size**               | `4px`             | `12px`         | `20px`         | `32px`          | `40px`       | `48px`         | `60px`            |
+| **Margin variable**    | `$xxs-margin`     | `$xs-margin`   | `$s-margin`    | `$m-margin`     | `$l-margin`  | `$xl-margin`    | `$xxl-margin`    |
+| **Padding variable**   | `$xxs-padding`    | `$xs-padding`  | `$s-padding`   | `$m-padding`    | `$l-padding` | `$xl-padding`   | `$xxl-padding`   |
+
+
+
+Styleguide 4.4
+*/
+// Corresponding [UX Spacing](https://confluence.walmart.com/display/UX/Spacing)
+
+$xxs-padding = 4px;
+$xs-padding = 12px;
+$s-padding = 20px;
+$m-padding = 32px;
+$l-padding = 40px;
+$xl-padding = 48px;
+$xxl-padding = 60px;
+
+$xxs-margin = 4px;
+$xs-margin = 12px;
+$s-margin = 20px;
+$m-margin = 32px;
+$l-margin = 40px;
+$xl-margin = 48px;
+$xxl-margin = 60px;
+
+// Spacing variable hashes. Primarily used for utility generation.
+$spacing-sizes-padding = {
+  "xxs": $xxs-padding,
+  "xs": $xs-padding,
+  "s": $s-padding,
+  "m": $m-padding,
+  "l": $l-padding,
+  "xl": $xl-padding,
+  "xxl": $xxl-padding
+}
+
+$spacing-sizes-margin = {
+  "xxs": $xxs-margin,
+  "xs": $xs-margin,
+  "s": $s-margin,
+  "m": $m-margin,
+  "l": $l-margin,
+  "xl": $xl-margin,
+  "xxl": $xxl-margin
+}
+
+/* ==========================================================================
+   Walmarticons
+   ========================================================================== */
+
+$wmicons = {
+  "cart": "\e000",
+  "list": "\e002",
+  "gift": "\e003",
+  "pin": "\e004",
+  "card": "\e005",
+  "search": "\e006",
+  "help": "\e007",
+  "zoom": "\e008",
+  "menu": "\e009",
+  "grid": "\e010",
+  "lock": "\e011",
+  "package": "\e013",
+  "truck": "\e015",
+  "print": "\e017",
+  "mail": "\e018",
+  "twitter": "\e019",
+  "pinterest": "\e020",
+  "facebook": "\e021",
+  "add-to-cart": "\e022",
+  "add-to-list": "\e023",
+  "store": "\e024",
+  "add": "\e025",
+  "weekly-ad": "\e026",
+  "zoom-out": "\e027",
+  "vudu": "\e028",
+  "youtube": "\e029",
+  "google-plus": "\e030",
+  "mobile": "\e031",
+  "angle-left": "\e032",
+  "angle-right": "\e033",
+  "ok": "\e034",
+  "exclamation-circle": "\e035",
+  "caret-down": "\e036",
+  "caret-up": "\e037",
+  "remove": "\e038",
+  "play": "\e040",
+  "ban-circle": "\e041",
+  "spark": "\e042",
+  "trophy": "\e043",
+  "star": "\e044",
+  "user": "\e045",
+  "thumbs-up": "\e046",
+  "comment": "\e047",
+  "play-circle": "\e048",
+  "new-window": "\e049",
+  "thumbs-alt-up": "\e050",
+  "thumbs-alt-down": "\e051",
+  "flag": "\e052",
+  "modal": "\e053",
+  "clock": "\e054",
+  // Deprecated: Prefer `savings-catcher` to `savings-center`.
+  "savings-center": "\e055",
+  "savings-catcher": "\e055",
+  "gift-card": "\e056",
+  "credit-card": "\e057",
+  "membership": "\e058",
+  "pharmay": "\e059"
+}
+
+/* ==========================================================================
+   Z-index
+   ========================================================================== */
+
+$wmzindex = {
+  "inherit": inherit,
+  "votd-background-card-lower": -20,
+  "votd-background-card-higher": -10,
+  "negative-2": -2,
+  "negative": -1,
+  "none": 0,
+  "basic": 1,
+  "basic-increment": 2,
+  "quicklook": 2,
+  "lists-item-disabled-overlay": 3,
+  "persistent-order-summary": 3,
+  "header-dropdown-backdrop": 3,
+  "checkout-overlay": 4,
+  "movies-more-info-pane": 4,
+  "movies-shelf-filter": 4,
+  "checkout-modal": 5,
+  "movies-info-pane": 5,
+  "movies-shelf-header-title": 5,
+  "movies-nav": 6,
+  "movies-show-shelf-filter": 6,
+  "spinner-backdrop": 6,
+  "movies-shelf-flyout": 6,
+  "registry-find-baby-header-image": 10,
+  "preferred-stores-modal": 99,
+  "store-finder": 99,
+  "flyout-caret-shadow": 100,
+  "header-lists-links": 100,
+  "persistent-subnav": 100,
+  "quicklook-modal": 100,
+  "store-finder-refine": 100,
+  "searchbar-typeahead": 129,
+  "bot-tabs": 199,
+  "product-fulfillment-content-expanded": 199,
+  "carousel-paginator": 200,
+  "flyout": 200,
+  "nav-dropdown": 200,
+  "checkout-header": 201,
+  "choice-fixed-bot": 202,
+  "flyout-align-caret": 201,
+  "spa-layout-choice": 201,
+  "flyout-modal-shipping-pass": 201,
+  "carousel-items-previous-next": 202,
+  "chooser": 210,
+  "bot-overlay": 300,
+  "search-spinner-backdrop": 300,
+  "trending-categories-fixed": 300,
+  "bot-modal-alert": 301,
+  "flyout-modal-add-to-list": 400,
+  "header": 2000,
+  "nav-dropdown-toggle": 2000,
+  "header-sign-in-flyout": 2000,
+  "store-detail-nav": 2000,
+  "header-flyout": 2005,
+  "header-fixed": 3000,
+  "callout": 3000,
+  "modal": 3000,
+  "store-responsive-filter": 3001,
+  "movies-overlay": 3001,
+  "cart-spinner-backdrop": 3001,
+  "cart-spinner": 3002,
+  "alert-modal": 4000,
+  "movies-pac-modal": 4000
+}
+
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+
+$gridGutters = {
+  s: 8px,
+  xl: 12px,
+  xxl: 20px
+};
+
+$gridColumnWidths = {
+  "1-12":  { width: 1/12 },                                                             // 8.3333%
+  "1-10":  { width: 1/10 },                                                             // 10%
+  "1-8":   { width: 1/8 },                                                              // 12.5%
+  "1-6":   { width: 1/6, aliases: { "1": "2-12" }},                                     // 16.6666%
+  "1-5":   { width: 1/5, aliases: { "1": "2-10" }},                                     // 20%
+  "1-4":   { width: 1/4, aliases: { "1": "2-8", "2": "3-12" }},                         // 25%
+  "3-10":  { width: 3/10 },                                                             // 30%
+  "1-3":   { width: 1/3, aliases: { "1": "2-6", "2": "4-12" }},                         // 33.3333%
+  "3-8":   { width: 3/8 },                                                              // 37.5%
+  "2-5":   { width: 2/5, aliases: { "1": "4-10" }},                                     // 40%
+  "5-12":  { width: 5/12 },                                                             // 41.6666%
+  "1-2":   { width: 1/2, aliases: { "1": "2-4", "2": "3-6", "3": "4-8", "4": "6-12" }}, // 50%
+  "7-12":  { width: 7/12 },                                                             // 58.3333%
+  "3-5":   { width: 3/5, aliases: { "1": "6-10" }},                                     // 60%
+  "5-8":   { width: 5/8 },                                                              // 62.5%
+  "2-3":   { width: 2/3, aliases: { "1": "4-6", "2": "8-12" }},                         // 66.6666%
+  "7-10":  { width: 7/10 },                                                             // 70%
+  "3-4":   { width: 3/4, aliases: { "1": "6-8", "2": "9-12" }},                         // 75%
+  "4-5":   { width: 4/5, aliases: { "1": "8-10" }},                                     // 80%
+  "5-6":   { width: 5/6, aliases: { "1": "10-12" }},                                    // 83.3333%
+  "7-8":   { width: 7/8 },                                                              // 87.5%
+  "9-10":  { width: 9/10 },                                                             // 90%
+  "11-12": { width: 11/12 }                                                             // 91.6666%
+};

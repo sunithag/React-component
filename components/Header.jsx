@@ -1,4 +1,14 @@
 var Header= React.createClass({
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var text = React.findDOMNode(this.refs.searchterm).value.trim();
+    if(!text) {
+      return;
+    }
+    this.props.onSearchSubmit(text);
+    React.findDOMNode(this.refs.searchterm).value = '';
+    return;
+  },
   render: function() {
     return (
       <header>
@@ -7,8 +17,8 @@ var Header= React.createClass({
         </div>
         <nav>
           <div>
-            <input type="text" placeholder="Search" />
-            <button>Search</button>
+            <input type="text" placeholder="Search" ref="searchterm"/>
+            <button onClick={this.handleSubmit}>Search</button>
           </div>
         </nav>
       </header>

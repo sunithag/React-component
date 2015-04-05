@@ -1,4 +1,4 @@
-var App= React.createClass({
+var App= React.createClass({displayName: "App",
   render: function() {
     var data = [
       {id: '123', imgsrc: 'http://localhost:8000/assets/images/camera.png', itemUrl: '#Name', title: 'FUJIFILM AX655 Digital Camera with 16 Megapixels and 5x Optical Zoom', price: '$450.30'},
@@ -7,10 +7,10 @@ var App= React.createClass({
       {id: '789', imgsrc: 'http://localhost:8000/assets/images/camera.png', itemUrl: '#Name', title: 'FUJIFILM AX655 Digital Camera with 16 Megapixels and 5x Optical Zoom', price: '$550.50'}
     ];
     return (
-      <div className="mobile-container">
-        <Header/>
-        <SearchResults data={data}/>
-      </div>
+      React.createElement("div", {className: "mobile-container"}, 
+        React.createElement(Header, null), 
+        React.createElement(SearchResults, {data: data})
+      )
     )
   }
 });

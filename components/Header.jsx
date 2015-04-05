@@ -3,7 +3,7 @@ var Header= React.createClass({
     return (
       <header>
         <div className="homepage-header">
-          <img src="assets/images/header.jpg" alt="Walmart Header"/>
+          <img src="http://localhost:8000/assets/images/header.jpg" alt="Walmart Header"/>
         </div>
         <nav>
           <div>

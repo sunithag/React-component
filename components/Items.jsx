@@ -1,3 +1,9 @@
+var React = require('react');
+
+var ProductImage = require('./productImage.jsx');
+var Price = require('./price.jsx');
+var Title = require('./title.jsx');
+
 var Items = React.createClass({
   propTypes: {
     options: React.PropTypes.array.isRequired
@@ -26,3 +32,4 @@ var Items = React.createClass({
     );
   }
 });
+module.exports = Items;

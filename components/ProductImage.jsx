@@ -1,3 +1,5 @@
+var React = require('react');
+
 var ProductImage = React.createClass({
   render: function () {
     return (
@@ -7,3 +9,5 @@ var ProductImage = React.createClass({
     );
   }
 }); 
+
+module.exports = ProductImage; 

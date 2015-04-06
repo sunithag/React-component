@@ -1,3 +1,5 @@
+var React = require('react');
+
 var Price = React.createClass({
   propTypes: {
     anchor: React.PropTypes.string.isRequired,
@@ -10,4 +12,6 @@ var Price = React.createClass({
       </a>
     );
   }
-});             
+}); 
+
+module.exports = Price;            

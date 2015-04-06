@@ -1,3 +1,10 @@
+var React = require('react');
+var $ = require('jquery');
+
+var Header = require('./header.jsx');
+var SearchResults = require('./searchResults.jsx');
+
+
 var App= React.createClass({
   getInitialState: function() {
     return {data: []};
@@ -36,5 +43,8 @@ var App= React.createClass({
         <SearchResults data={this.state.data}/>
       </div>
     )
+    
   }
 });
+
+module.exports = App;

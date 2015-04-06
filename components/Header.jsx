@@ -1,3 +1,5 @@
+var React = require('react');
+
 var Header= React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
@@ -25,3 +27,5 @@ var Header= React.createClass({
     )
   }
 });
+
+module.exports = Header;

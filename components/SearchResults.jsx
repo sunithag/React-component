@@ -1,3 +1,7 @@
+var React = require('react');
+
+var Items = require('./items.jsx');
+
 var SearchResults = React.createClass({
   propTypes: {
     data: React.PropTypes.array.isRequired
@@ -10,3 +14,5 @@ var SearchResults = React.createClass({
     );
   }
 });
+
+module.exports = SearchResults; 

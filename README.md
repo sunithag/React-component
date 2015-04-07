@@ -1,5 +1,5 @@
 # React-component
-5
+6
 
 for commandline jsx->js
  jsx -x jsx components/ build/

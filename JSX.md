@@ -1,4 +1,18 @@
-JSX.md
+
+
+We use JSX which is javascript in XML syntax.
+
+React JSX transform from XML like syntax to native javscript.
+
+ you can simply run npm install -g react-tools to install our command-line jsx tool. 
+
+ This tool will translate files that use JSX syntax to plain JavaScript files that can run directly in the browser. 
+
+ For commandline jsx->js
+ jsx -x jsx components/ build/
+
+ jsx --watch src/ build/
+
 
 -- The inputs to this component are called props — short for "properties".
 -- it is a concise and familiar syntax for defining tree structures with attributes.

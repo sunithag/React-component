@@ -1,6 +1,6 @@
 [
-  {"id": "123", "imgsrc": "http://localhost:8000/assets/images/camera.png", "itemUrl": "#Name", "title": "FUJIFILM AX655 Digital Camera with 16 Megapixels and 5x Optical Zoom", "price": "$50.30"},
-  {"id": "345", "imgsrc": "http://localhost:8000/assets/images/camera.png", "itemUrl": "#Name", "title": "Nikon COOLPIX L830 Digital Camera with 16 Megapixels, Zoom with 4-136mm", "price": "$99.00"},
-  {"id": "567", "imgsrc": "http://localhost:8000/assets/images/camera.png", "itemUrl": "#Name", "title": "FUJIFILM COOLPIX L830 Ultra Zoom Digital Camera with 16 Megapixels", "price": "$25.50"},
-  {"id": "789", "imgsrc": "http://localhost:8000/assets/images/camera.png", "itemUrl": "#Name", "title": "FUJIFILM AX655 Digital Camera with 16 Megapixels and 5x Optical Zoom", "price": "$55.50"}
+  {"id": "123", "imgsrc": "http://i.walmartimages.com/i/p/00/88/84/62/04/0088846204278_100X100.jpg", "itemUrl": "http://www.walmart.com/ip/Apple-iPad-Mini-3-16GB-Wi-Fi/37650848", "title": "<mark>Apple</mark> <mark>iPad</mark> mini 3 16GB Wi-Fi", "price": "$389.30"},
+  {"id": "345", "imgsrc": "http://i.walmartimages.com/i/p/00/88/84/62/03/0088846203647_100X100.jpg", "itemUrl": "http://www.walmart.com/ip/Apple-iPad-Air-2-16GB-Wi-Fi/37648975", "title": "<mark>Apple</mark> <mark>iPad</mark> Air 2 16GB Wi-Fi", "price": "$489.00"},
+  {"id": "567", "imgsrc": "http://i.walmartimages.com/i/p/00/88/59/09/84/0088590984629_100X100.jpg", "itemUrl": "http://www.walmart.com//ip/Apple-iPad-mini-16GB-Wi-Fi/33093101", "title": "<mark>Apple</mark> <mark>iPad</mark> mini 16GB Wi-Fi", "price": "$219.99"},
+  {"id": "789", "imgsrc": "http://i.walmartimages.com/i/p/00/81/89/70/01/0081897001337_100X100.jpg", "itemUrl": "http://www.walmart.com/ip/Apple-iPad-with-Retina-Display-16GB-Wi-Fi-Black-or-White-Refurbished/22288798", "title": "<mark>Apple</mark> <mark>iPad</mark> 4 16GB Wi-Fi Refurbished", "price": "$299.99"}
 ]
